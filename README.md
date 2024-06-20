@@ -1,7 +1,34 @@
-# What you need to do
-1. Clone repo
-   Use -> git clone https://github.com/Numb-0/Dotfiles.git ~/.dotfiles
-   Or -> git clone git@github.com:Numb-0/Dotfiles.git ~/.dotfiles
+# Cosix dotfiles
 
-2. Create Symlinks (script)
-3. Install programs (script, pacman)
+This directory contains the dotfiles for my system
+
+## Requirements
+
+Ensure you have the following installed on your system
+
+### Git
+
+```
+pacman -S git
+```
+
+### Stow
+
+```
+pacman -S stow
+```
+
+## Installation
+
+First, check out the dotfiles repo in your $HOME directory using git
+
+```
+$ git clone git@github.com/dreamsofautonomy/dotfiles.git
+$ cd dotfiles
+```
+
+then use GNU stow to create symlinks
+
+```
+$ stow .
+```
