@@ -9,13 +9,13 @@ Ensure you have the following installed on your system
 ### Git
 
 ```
-pacman -S git
+pacman -Sy git
 ```
 
 ### Stow
 
 ```
-pacman -S stow
+pacman -Sy stow
 ```
 
 ## Installation
