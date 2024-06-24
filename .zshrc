@@ -56,7 +56,7 @@ function in {
 }
 
 # Helpful aliases
-alias  c='clear' # clear terminal
+alias  c='clear ; pokemon-colorscripts --no-title -r' # clear terminal
 alias  l='eza -lh' # long list
 alias ls='eza -1 -a' # short list
 alias ll='eza -lha --sort=name --group-directories-first' # long list all
