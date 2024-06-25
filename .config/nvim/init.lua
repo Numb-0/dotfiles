@@ -1,4 +1,4 @@
-
+# Nvim Configs
 
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
@@ -37,7 +37,7 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
-  } 
+  }
 }
 local opt = {}
 
@@ -45,8 +45,9 @@ local opt = {}
 require("lazy").setup("plugins")
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-vim.keymap.set("n", "<C-l>", builtin.live_grep, {})
-vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
+vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
+vim.keymap.set("n", "<C-a>", ":Neotree filesystem reveal left<CR>")
+vim.keymap.set("i", "<Del>", "<Esc>")
 
 local config = require("nvim-treesitter.configs")
 config.setup({
@@ -54,4 +55,3 @@ config.setup({
   highlight = { enable = true },
   indent = { enable = true }
 })
-
