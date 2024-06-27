@@ -8,12 +8,12 @@ PKGS=(
 
     # SYSTEM --------------------------------------------------------------
     
-    'qt5-wayland' # Needed for hypr
+    'qt5-wayland'             # Needed for hypr
     'qt6-wayland'
     'xdg-desktop-portal-hyprland'
-
-    'kitty' # Terminal
- 
+    'hyprpaper'               # Wallpaper
+    'kitty'                   # Terminal
+    'ly'                      # Display Manager
 
     # TERMINAL UTILITIES --------------------------------------------------
 
@@ -49,7 +49,9 @@ PKGS=(
     # PRODUCTIVITY --------------------------------------------------------
 
     'xpdf'                  # PDF viewer
-
+    
+    # NVIDIA --------------------------------------------------------------
+    'nvidia'
 )
 
 for PKG in "${PKGS[@]}"; do

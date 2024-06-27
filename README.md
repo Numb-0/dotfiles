@@ -42,9 +42,10 @@ env = WLR_NO_HARDWARE_CURSORS,1
 env = WLR_DRM_NO_ATOMIC,1
 
 
-## Grub
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 intremap=off splash button.lid_init_state=open quiet nvidia_drm.modeset=1"
-
+## Grub (Razer)
+1.Go to /etc/default/grub
+2.Add GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 intremap=off splash button.lid_init_state=open quiet nvidia_drm.modeset=1"
+3.Run sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 ## SSH
 ### Generating the key and adding it to the agent
@@ -55,3 +56,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 intremap=off splash button.lid_init_state
 5. cat ~/.ssh/id_ed25519.pub
 6. Then to check connection --> ssh -T git@github.com
 7. Tip: if git keeps asking username and pass use --> git remote set-url origin git@github.com:UserName/Repo
+
+
+## Ly
+The display manager config file in dotfiles/.config/ly must be put in /etc/ly/
