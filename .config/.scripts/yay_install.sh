@@ -4,9 +4,6 @@ echo
 echo "INSTALLING AUR PACKAGES"
 echo
 
-echo "Please enter username:"
-read username
-
 cd "${HOME}"
 
 echo "CLONING: YAY"
@@ -20,7 +17,9 @@ PKGS=(
     # COMMUNICATIONS ------------------------------------------------------
 
     # THEMES --------------------------------------------------------------
-
+    
+    'pokemon-colorscripts'
+    
     # APPS ----------------------------------------------------------------
 
     'discord'                       # Chat for gamers

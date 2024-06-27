@@ -1,57 +1,40 @@
-# Nvim Configs
-
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+---@diagnostic disable-next-line: undefined-field
+if not vim.loop.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
+
 vim.opt.rtp:prepend(lazypath)
 
+local lazy_config = require "configs.lazy"
 
-local plugins = {
-  { "rebelot/kanagawa.nvim", name="kanagawa", priority = 1000 },
+-- load plugins
+require("lazy").setup({
   {
-    "nvim-telescope/telescope.nvim", tag = "0.1.8",
-      dependencies = { "nvim-lua/plenary.nvim" }
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
+    end,
   },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
-  }
-}
-local opt = {}
 
+  { import = "plugins" },
+}, lazy_config)
 
-require("lazy").setup("plugins")
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
-vim.keymap.set("n", "<C-a>", ":Neotree filesystem reveal left<CR>")
-vim.keymap.set("i", "<Del>", "<Esc>")
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
 
-local config = require("nvim-treesitter.configs")
-config.setup({
-  ensure_installed = {"lua", "javascript"},
-  highlight = { enable = true },
-  indent = { enable = true }
-})
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
