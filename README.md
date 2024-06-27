@@ -45,3 +45,13 @@ env = WLR_DRM_NO_ATOMIC,1
 ## Grub
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 intremap=off splash button.lid_init_state=open quiet nvidia_drm.modeset=1"
 
+
+## SSH
+### Generating the key and adding it to the agent
+1. ssh-keygen -t ed25519 -C "your_email@example.com"
+2. eval "$(ssh-agent -s)"
+3. ssh-add ~/.ssh/id_ed25519
+4. Go to github and add the the pub key using -->
+5. cat ~/.ssh/id_ed25519.pub
+6. Then to check connection --> ssh -T git@github.com
+7. Tip: if git keeps asking username and pass use --> git remote set-url origin git@github.com:UserName/Repo
