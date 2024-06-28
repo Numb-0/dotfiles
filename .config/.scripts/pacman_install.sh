@@ -11,10 +11,13 @@ PKGS=(
     'qt5-wayland'             # Needed for hypr
     'qt6-wayland'
     'xdg-desktop-portal-hyprland'
+    'xdg-desktop-portal-gtk'
     'hyprpaper'               # Wallpaper
     'kitty'                   # Terminal
-    'ly'                      # Display Manager
-
+    'greetd-tuigreet'         # Display Manager
+    'polkit-kde-agent'        # Authentication Agent
+    'cliphist'                # ClipBoard Manager
+    'udiskie'                 # Automount Utility
     # TERMINAL UTILITIES --------------------------------------------------
 
     'neofetch'                # Shows system info when you launch terminal
@@ -28,7 +31,7 @@ PKGS=(
     'zsh'                     # Interactive shell
     'eza'                     # Better ls	
     'ripgrep'                 # Directory Search
-
+    'tree'                    # Directory tree visualizer
     # GENERAL UTILITIES ---------------------------------------------------
     
     'ttf-jetbrains-mono-nerd' # Font for Terminal
@@ -44,7 +47,7 @@ PKGS=(
     'yarn'                  # Dependency management (Hyper needs this)
 
     # MEDIA ---------------------------------------------------------------
-
+    'imv'
 
     # PRODUCTIVITY --------------------------------------------------------
 

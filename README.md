@@ -58,5 +58,5 @@ env = WLR_DRM_NO_ATOMIC,1
 7. Tip: if git keeps asking username and pass use --> git remote set-url origin git@github.com:UserName/Repo
 
 
-## Ly
-The display manager config file in dotfiles/.config/ly must be put in /etc/ly/
+## TuiGreetd
+The display manager config file in dotfiles/.config/tuigreetd must be put in /etc/greetd/

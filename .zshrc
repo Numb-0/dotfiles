@@ -70,7 +70,8 @@ alias pa='$aurhelper -Ss' # list availabe package
 alias pc='$aurhelper -Sc' # remove unused cache
 alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
 alias vc='code --ozone-platform-hint=wayland --disable-gpu' # gui code editor
-
+alias tr='tree -a -f'
+alias trd='tree -a -d'
 # Handy change dir shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
