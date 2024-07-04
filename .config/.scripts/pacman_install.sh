@@ -18,6 +18,7 @@ PKGS=(
     'polkit-kde-agent'        # Authentication Agent
     'cliphist'                # ClipBoard Manager
     'udiskie'                 # Automount Utility
+
     # TERMINAL UTILITIES --------------------------------------------------
 
     'neofetch'                # Shows system info when you launch terminal
@@ -32,6 +33,7 @@ PKGS=(
     'eza'                     # Better ls	
     'ripgrep'                 # Directory Search
     'tree'                    # Directory tree visualizer
+
     # GENERAL UTILITIES ---------------------------------------------------
     
     'ttf-jetbrains-mono-nerd' # Font for Terminal
@@ -47,15 +49,25 @@ PKGS=(
     'yarn'                  # Dependency management (Hyper needs this)
 
     # MEDIA ---------------------------------------------------------------
+    
     'imv'
-
+    'spotify-launcher'
     # PRODUCTIVITY --------------------------------------------------------
-
+    
     'xpdf'                  # PDF viewer
     
     # NVIDIA --------------------------------------------------------------
+    
     'nvidia'
-)
+
+    # AGS UTILS
+    
+    'libdbusmenu-gtk3'
+    'npm'
+    'gvfs' 
+    'upower'
+    'brightnessctl'
+  )
 
 for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"

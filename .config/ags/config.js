@@ -1,26 +1,11 @@
-const time = Variable('', {
-    poll: [1000, function() {
-        return Date().toString()
-    }],
-})
-
-const Bar = (/** @type {number} */ monitor) => Widget.Window({
-    monitor,
-    name: `bar${monitor}`,
-    anchor: ['top', 'left', 'right'],
-    exclusivity: 'exclusive',
-    child: Widget.CenterBox({
-        start_widget: Widget.Label({
-            hpack: 'center',
-            label: 'Welcome to AGS!',
-        }),
-        end_widget: Widget.Label({
-            hpack: 'center',
-            label: time.bind(),
-        }),
-    }),
-})
-
+import { applauncher } from "./widgets/applauncher.js"
+import { Bar } from "./widgets/bar.js"
 App.config({
-    windows: [Bar(0)],
+  style: './style.css',
+  icons: './assets',
+  gtkTheme: "Adwaita-dark",
+  windows: [
+    applauncher,
+    Bar(),
+  ],
 })

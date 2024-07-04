@@ -60,3 +60,6 @@ env = WLR_DRM_NO_ATOMIC,1
 
 ## TuiGreetd
 The display manager config file in dotfiles/.config/tuigreetd must be put in /etc/greetd/
+
+## Wifi
+install network-manager and use the nmtui command to configure your network
