@@ -1,10 +1,10 @@
 import { Workspaces } from "./components/workspaces.js"
 import { Volume } from "./components/volume.js"
-import { Battery } from "./components/battery_widget.js"
-import { SpotMedia} from "./components/spot_media.js"
+import { Battery } from "./components/battery.js"
+import { Media } from "./components/media.js"
+import { SysTray } from "./components/systray.js"
 
 const notifications = await Service.import("notifications")
-const systemtray = await Service.import("systemtray")
 
 const date = Variable("", {
     poll: [1000, 'date "+%H:%M:%S %b %e"'],
@@ -34,26 +34,10 @@ function Notification() {
     })
 }
 
-
-function SysTray() {
-    const items = systemtray.bind("items")
-        .as(items => items.map(item => Widget.Button({
-            class_name: "sys_items",
-            child: Widget.Icon({icon: item.bind("icon") }),
-            on_primary_click: (_, event) => item.activate(event),
-            on_secondary_click: (_, event) => item.openMenu(event),
-            tooltip_markup: item.bind("tooltip_markup"),
-        })))
-
-    return Widget.Box({
-        children: items,
-    })
-}
-
-
 // layout of the bar
 function Left() {
     return Widget.Box({
+        hpack: "start",
         spacing: 8,
         children: [
             Workspaces(),
@@ -65,7 +49,7 @@ function Center() {
     return Widget.Box({
         spacing: 8,
         children: [
-            SpotMedia(),
+            Media(),
             //Notification(),
         ],
     })
@@ -87,11 +71,11 @@ function Right() {
 export function Bar(monitor = 0) {
     return Widget.Window({
         name: `bar-${monitor}`, // name has to be unique
-        class_name: "bar",
         monitor,
         anchor: ["top", "left", "right"],
         exclusivity: "exclusive",
         child: Widget.CenterBox({
+            class_name: "bar",
             start_widget: Left(),
             center_widget: Center(),
             end_widget: Right(),

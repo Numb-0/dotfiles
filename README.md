@@ -58,8 +58,7 @@ env = WLR_DRM_NO_ATOMIC,1
 7. Tip: if git keeps asking username and pass use --> git remote set-url origin git@github.com:UserName/Repo
 
 
-## TuiGreetd
-The display manager config file in dotfiles/.config/tuigreetd must be put in /etc/greetd/
-
 ## Wifi
 install network-manager and use the nmtui command to configure your network
+
+If you are using a hybrid laptop or a dual GPU system ensure you do not have Nouveau blacklisted by a GPU manager in /etc/modprobe.d. 

@@ -7,7 +7,6 @@ export function Battery() {
         children: [
             Widget.Icon({icon: battery.bind("icon_name")}),
             Widget.Label({
-              css: "margin-left: 3px;margin-top:3px;",    
               label: battery.bind("percent").as(p => `${p}%`)
             }),
         ],

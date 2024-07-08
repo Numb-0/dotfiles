@@ -1,0 +1,64 @@
+.bar {
+  font-family: "JetBrains Mono";
+  font-weight: 600;
+  background-color: $base;
+  label {
+    padding-top: 3px;
+  } 
+  button {
+    min-width: 8px;
+    min-height: 8px;
+  }
+}
+
+.volume {
+  * {
+    color: $green; 
+    margin: 0;
+  }
+  label {
+    padding-left: 3px;
+  }
+}
+
+.workspaces {  
+  margin-left: 5px;
+  button {
+    margin: 6px 0 6px;
+    background-color: $mauve;
+    border-width: 1px;
+    border-radius: 40px;
+    padding: 3px;
+
+    &.active {
+      border-radius: 0;
+      background-color: $yellow;
+    }
+  }
+}
+
+.battery {
+  * {
+    color: $yellow;
+  }
+  label {
+    padding-left: 2px;
+  }
+}
+
+.clock {
+  color: $text;
+}
+
+.media {
+  * {
+    color: $mauve;
+  }   
+}
+
+.systray {
+  button {
+    padding: 2px 4px;
+    -gtk-icon-shadow: none;
+  }
+}

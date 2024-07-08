@@ -1,0 +1,38 @@
+
+.applauncher {
+  background-color: $base;
+  border-radius: 10px;
+  >box {
+    margin: 10px;
+  }
+  entry {
+    margin-bottom: 5px;
+    background-color: $crust;
+    color: $text;
+    border-color: $mauve;
+    border-width: 2px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .scrollable {
+    min-height: 500px;
+    min-width: 300px;
+  }
+  scrollbar {
+    opacity: 0;
+  }
+  button {
+    outline: none;
+    -gtk-icon-shadow: none;
+    &:focus {
+      background-color: $surface0;
+    }
+  }
+  label {
+    margin-left: 5px;
+    font-family: "JetBrains Mono";
+    font-weight: 600;
+    color: $text;
+  }
+}

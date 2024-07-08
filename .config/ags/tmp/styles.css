@@ -1,0 +1,80 @@
+.bar {
+  font-family: "JetBrains Mono";
+  font-weight: 600;
+  background-color: #24273a; }
+  .bar label {
+    padding-top: 3px; }
+  .bar button {
+    min-width: 8px;
+    min-height: 8px; }
+
+.volume * {
+  color: #a6da95;
+  margin: 0; }
+
+.volume label {
+  padding-left: 3px; }
+
+.workspaces {
+  margin-left: 5px; }
+  .workspaces button {
+    margin: 6px 0 6px;
+    background-color: #c6a0f6;
+    border-width: 1px;
+    border-radius: 40px;
+    padding: 3px; }
+    .workspaces button.active {
+      border-radius: 0;
+      background-color: #eed49f; }
+
+.battery * {
+  color: #eed49f; }
+
+.battery label {
+  padding-left: 2px; }
+
+.clock {
+  color: #cad3f5; }
+
+.media * {
+  color: #c6a0f6; }
+
+.systray button {
+  padding: 2px 4px;
+  -gtk-icon-shadow: none; }
+
+.applauncher {
+  background-color: #24273a;
+  border-radius: 10px; }
+  .applauncher > box {
+    margin: 10px; }
+  .applauncher entry {
+    margin-bottom: 5px;
+    background-color: #181926;
+    color: #cad3f5;
+    border-color: #c6a0f6;
+    border-width: 2px; }
+    .applauncher entry:focus {
+      box-shadow: none; }
+  .applauncher .scrollable {
+    min-height: 500px;
+    min-width: 300px; }
+  .applauncher scrollbar {
+    opacity: 0; }
+  .applauncher button {
+    outline: none;
+    -gtk-icon-shadow: none; }
+    .applauncher button:focus {
+      background-color: #363a4f; }
+  .applauncher label {
+    margin-left: 5px;
+    font-family: "JetBrains Mono";
+    font-weight: 600;
+    color: #cad3f5; }
+
+button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  text-shadow: none; }

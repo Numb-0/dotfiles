@@ -18,6 +18,8 @@ PKGS=(
     'polkit-kde-agent'        # Authentication Agent
     'cliphist'                # ClipBoard Manager
     'udiskie'                 # Automount Utility
+    'linux-headers'
+    'linux-lts-headers'
 
     # TERMINAL UTILITIES --------------------------------------------------
 
@@ -58,7 +60,7 @@ PKGS=(
     
     # NVIDIA --------------------------------------------------------------
     
-    'nvidia'
+    'nvidia-dkms'
 
     # AGS UTILS
     
@@ -67,6 +69,7 @@ PKGS=(
     'gvfs' 
     'upower'
     'brightnessctl'
+    'sassc'
   )
 
 for PKG in "${PKGS[@]}"; do

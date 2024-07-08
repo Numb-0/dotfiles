@@ -21,7 +21,6 @@ export function Volume() {
     }
     
     const label = Widget.Label({
-        css: "margin-top: 3px",
         label: Utils.watch(getLabel(), audio.speaker, getLabel),
     })
 
@@ -40,19 +39,14 @@ export function Volume() {
           audio.speaker.volume = audio.speaker.volume + 0.05
         }
     } 
-    
-    const button = Widget.Button({
-        class_name: "volume_button",
-        child: label,
-        on_scroll_down: volume_down,
+       
+    return Widget.EventBox({
+        child: Widget.Box({
+          class_name: "volume",
+          children: [icon,label],
+        }),
         on_scroll_up: volume_up,
-        
-    })
-    
-    return Widget.Box({
-        class_name: "volume",
-        //css: "min-width: 30px",
-        children: [icon,button],
+        on_scroll_down: volume_down,
     })
 }
 

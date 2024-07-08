@@ -1,0 +1,20 @@
+$yellow: #eed49f;
+$mauve: #c6a0f6;
+$crust: #181926;
+$mantle: #1e2030;
+$base: #24273a;
+$text: #cad3f5;
+$lavander: #b7bdf8;
+$green: #a6da95;
+$surface0: #363a4f;
+
+@import "bar";
+@import "applauncher";
+
+button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+}
