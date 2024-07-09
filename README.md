@@ -60,5 +60,3 @@ env = WLR_DRM_NO_ATOMIC,1
 
 ## Wifi
 install network-manager and use the nmtui command to configure your network
-
-If you are using a hybrid laptop or a dual GPU system ensure you do not have Nouveau blacklisted by a GPU manager in /etc/modprobe.d. 
