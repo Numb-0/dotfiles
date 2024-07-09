@@ -1,4 +1,5 @@
 const mpris = await Service.import("mpris")
+
 export function Media() {
   const label_text = Utils.watch("", mpris, "player-changed", () => {
     if (mpris.players[0] && mpris.getPlayer("spotify")) {

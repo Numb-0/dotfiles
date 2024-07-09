@@ -62,3 +62,12 @@
     -gtk-icon-shadow: none;
   }
 }
+
+.brightness {
+  * {
+    color: $peach;
+  }
+  label {
+    padding-left: 2px;
+  }
+}

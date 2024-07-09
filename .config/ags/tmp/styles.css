@@ -43,6 +43,12 @@
   padding: 2px 4px;
   -gtk-icon-shadow: none; }
 
+.brightness * {
+  color: #f5a97f; }
+
+.brightness label {
+  padding-left: 2px; }
+
 .applauncher {
   background-color: #24273a;
   border-radius: 10px; }

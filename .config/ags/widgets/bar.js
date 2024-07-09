@@ -3,6 +3,7 @@ import { Volume } from "./components/volume.js"
 import { Battery } from "./components/battery.js"
 import { Media } from "./components/media.js"
 import { SysTray } from "./components/systray.js"
+import { Brightness } from "./components/brightness.js" 
 
 const notifications = await Service.import("notifications")
 
@@ -16,6 +17,7 @@ function Clock() {
         label: date.bind(),
     })
 }
+
 
 
 function Notification() {
@@ -60,6 +62,7 @@ function Right() {
         hpack: "end",
         spacing: 8,
         children: [
+            Brightness(),
             Clock(),
             Volume(),
             Battery(),
