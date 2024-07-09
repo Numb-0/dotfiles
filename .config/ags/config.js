@@ -14,5 +14,6 @@ App.config({
   windows: [
     applauncher,
     Bar(),
+    Bar(1)
   ],
 })

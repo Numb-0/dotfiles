@@ -23,6 +23,8 @@
     border-width: 1px;
     border-radius: 40px;
     padding: 3px; }
+    .workspaces button.occupied {
+      background-color: #8aadf4; }
     .workspaces button.active {
       border-radius: 0;
       background-color: #eed49f; }

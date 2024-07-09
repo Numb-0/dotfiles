@@ -29,6 +29,10 @@
     border-width: 1px;
     border-radius: 40px;
     padding: 3px;
+    
+    &.occupied {
+      background-color: $blue;
+    }
 
     &.active {
       border-radius: 0;
