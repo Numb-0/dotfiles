@@ -24,7 +24,7 @@ const AppItem = app => Widget.Button({
     }),
 })
 
-const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
+const Applauncher = ({ spacing = 12 }) => {
     // list of application buttons
     let applications = query("").map(AppItem)
 
@@ -95,9 +95,5 @@ export const applauncher = Widget.Window({
     visible: false,
     class_name: "applauncher",
     keymode: "exclusive",
-    child: Applauncher({
-        width: 350,
-        height: 500,
-        spacing: 12,
-    }),
+    child: Applauncher({ spacing: 12}),
 })

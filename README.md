@@ -60,3 +60,7 @@ env = WLR_DRM_NO_ATOMIC,1
 
 ## Wifi
 install network-manager and use the nmtui command to configure your network
+
+## keyswap
+1. go to /usr/share/X11/xkb/symbols/  and find the us file
+2. modify the us file changing y - z

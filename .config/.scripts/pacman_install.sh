@@ -20,7 +20,8 @@ PKGS=(
     'udiskie'                 # Automount Utility
     'linux-headers'
     'linux-lts-headers'
-
+    'thunar'
+    'thunar-volman'
     # TERMINAL UTILITIES --------------------------------------------------
 
     'neofetch'                # Shows system info when you launch terminal
@@ -54,6 +55,7 @@ PKGS=(
     
     'imv'
     'spotify-launcher'
+
     # PRODUCTIVITY --------------------------------------------------------
     
     'xpdf'                  # PDF viewer

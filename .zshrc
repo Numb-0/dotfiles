@@ -85,6 +85,9 @@ alias mkdir='mkdir -p'
 # Fixes "Error opening terminal: xterm-kitty" when using the default kitty term to open some programs through ssh
 alias ssh='kitten ssh'
 
+# Kitty Nvim Padding
+alias nvim='kitty @ set-spacing padding=0 && nvim && kitty @ set-spacing padding=default'
+
 # Adding history
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
