@@ -26,5 +26,3 @@ _darcs
 # Ignore scripts folder
 \.scripts
 
-# Ignore ly folder
-\.ly
