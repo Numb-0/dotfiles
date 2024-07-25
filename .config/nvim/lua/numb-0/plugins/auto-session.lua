@@ -7,7 +7,7 @@ return {
       auto_restore_enabled = false,
       auto_session_suppress_dirs = { "~/","~/Dev/", "~/Dowloads", "~/Documents", "~/Desktop/" },
     })
-    
+
     local keymap = vim.keymap
     keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore Session" })
     keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save Session" })

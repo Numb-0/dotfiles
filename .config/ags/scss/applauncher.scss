@@ -2,11 +2,12 @@
 .applauncher {
   background-color: $base;
   border-radius: 10px;
-  >box {
-    margin: 10px;
+  > box {
+    padding: 5px;
   }
+  
   entry {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     background-color: $crust;
     color: $text;
     border-color: $mauve;
@@ -15,12 +16,16 @@
       box-shadow: none;
     }
   }
+
   .scrollable {
     min-height: 500px;
     min-width: 300px;
   }
+
   scrollbar {
-    opacity: 0;
+    &.overlay-indicator {
+      opacity: 0;
+    }
   }
   button {
     outline: none;

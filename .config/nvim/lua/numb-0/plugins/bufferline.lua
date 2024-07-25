@@ -20,7 +20,7 @@ return {
     bufferline.setup({
       options = {
         mode = "tabs",
-        separator_style = "slope",
+        separator_style = "slant",
         offsets = {
           {
             filetype = "NvimTree",

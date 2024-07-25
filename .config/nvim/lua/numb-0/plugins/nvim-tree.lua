@@ -1,5 +1,5 @@
 return {
-  "nvim-tree/nvim-tree.lua",  
+  "nvim-tree/nvim-tree.lua",
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local nvimtree = require("nvim-tree")
@@ -12,11 +12,11 @@ return {
         number = true,
       },
     })
-    
+
     -- Tree Keymaps
     local keymap = vim.keymap
-    keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {desc = "Toggle nvim-tree"})
-    keymap.set("n", "<leader>ee", "<cmd>NvimTreeFocus<CR>", {desc = "Enter nvim-tree"})
+    keymap.set("n", "<leader>et", "<cmd>NvimTreeToggle<CR>", {desc = "Toggle nvim-tree"})
+    keymap.set("n", "<leader>ee", "<cmd>NvimTreeFocus<CR>", {desc = "Focus nvim-tree"})
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", {desc = "Toggle nvim-tree on current buffer"})
   end
 }

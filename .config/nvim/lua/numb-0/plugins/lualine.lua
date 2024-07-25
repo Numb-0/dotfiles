@@ -15,6 +15,7 @@ return {
       mauve = "#c6a0f6",
       yellow = "#eed49f",
       blue = "#8aadf4",
+      peach = "#f5a97f",
     }
 
     local custom_theme = {
@@ -45,6 +46,11 @@ return {
       },
       inactive = {
         a = { bg = colors.crust, fg = colors.text, gui = "bold"},
+        b = { bg = colors.crust, fg = colors.text },
+        c = { bg = colors.crust, fg = colors.text },
+      },
+      terminal = {
+        a = { bg = colors.peach, fg = colors.crust, gui = "bold"},
         b = { bg = colors.crust, fg = colors.text },
         c = { bg = colors.crust, fg = colors.text },
       }

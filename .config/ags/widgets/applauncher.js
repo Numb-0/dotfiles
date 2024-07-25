@@ -26,6 +26,7 @@ const AppItem = app => Widget.Button({
 
 const Applauncher = ({ spacing = 12 }) => {
     // list of application buttons
+    // Takes each found app and creates a button for each 
     let applications = query("").map(AppItem)
 
     // container holding the buttons
@@ -95,5 +96,5 @@ export const applauncher = Widget.Window({
     visible: false,
     class_name: "applauncher",
     keymode: "exclusive",
-    child: Applauncher({ spacing: 12}),
+    child: Applauncher({ spacing: 12 }),
 })

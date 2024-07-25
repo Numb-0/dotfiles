@@ -4,6 +4,8 @@ import { Battery } from "./components/battery.js"
 import { Media } from "./components/media.js"
 import { SysTray } from "./components/systray.js"
 import { Brightness } from "./components/brightness.js" 
+import { Network } from "./components/network.js"
+import { Bluetooth } from "./components/bluetooth.js"
 
 const notifications = await Service.import("notifications")
 
@@ -18,6 +20,12 @@ function Clock() {
     })
 }
 
+function Logo() {
+  return Widget.Icon({
+    class_name: "logo",
+    icon: 'archico-symbolic',
+  })
+}
 
 
 function Notification() {
@@ -42,6 +50,7 @@ function Left() {
         hpack: "start",
         spacing: 8,
         children: [
+            Logo(),
             Workspaces(),
         ],
     })
@@ -62,11 +71,13 @@ function Right() {
         hpack: "end",
         spacing: 8,
         children: [
-            Brightness(),
-            Clock(),
-            Volume(),
-            Battery(),
-            SysTray(),
+          //Bluetooth(),
+          Brightness(),
+          Clock(),
+          Volume(),
+          Network(),
+          Battery(),
+          SysTray(),
         ],
     })
 }

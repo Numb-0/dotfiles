@@ -16,8 +16,8 @@ export function Brightness() {
   })
 
   const eventbox = Widget.EventBox({
-    on_scroll_up: () => brightness.screen_value = brightness.screen_value + 0.02,
-    on_scroll_down: () => brightness.screen_value = Math.max(0, brightness.screen_value - 0.02),
+    on_scroll_up: () => { brightness.screen_value = (brightness.screen_value + 0.01) },
+    on_scroll_down: () => { brightness.screen_value = Math.max(0, brightness.screen_value - 0.01) },
     child: box,
   })
     

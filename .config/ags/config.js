@@ -1,4 +1,5 @@
 import { applauncher } from "./widgets/applauncher.js"
+import { dashboard } from "./widgets/dashboard.js"
 import { Bar } from "./widgets/bar.js"
 
 const hyprland = await Service.import("hyprland")
@@ -22,6 +23,7 @@ App.config({
   gtkTheme: "Adwaita-dark",
   windows: [
     applauncher,
+    dashboard,
     ...Bars(),
   ],
 })

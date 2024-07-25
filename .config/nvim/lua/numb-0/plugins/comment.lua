@@ -9,6 +9,10 @@ return {
     local comment = require("Comment")
 
     local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
+    local keymap = vim.keymap
+
+    keymap.set("n", "<leader>/", "gcc", { desc = "Comment toggle", remap = true })
+    keymap.set("v", "<leader>/", "gc", { desc = "Comment toggle", remap = true })
 
     -- enable comment
     comment.setup({

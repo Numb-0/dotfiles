@@ -22,6 +22,7 @@ PKGS=(
     'linux-lts-headers'
     'thunar'
     'thunar-volman'
+
     # TERMINAL UTILITIES --------------------------------------------------
 
     'neofetch'                # Shows system info when you launch terminal
@@ -72,6 +73,7 @@ PKGS=(
     'upower'
     'brightnessctl'
     'sassc'
+    'gnome-bluetooth-3.0'
   )
 
 for PKG in "${PKGS[@]}"; do

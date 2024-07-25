@@ -2,8 +2,9 @@ const mpris = await Service.import("mpris")
 
 export function Media() {
   const label_text = Utils.watch("", mpris, "player-changed", () => {
-    if (mpris.players[0] && mpris.getPlayer("spotify")) {
-        const { track_artists, track_title } = mpris.players[0]
+    const spotify_player = mpris.getPlayer("spotify")
+    if (spotify_player && spotify_player.play_back_status != "Stopped") {
+        const { track_artists, track_title } = spotify_player
         return `${track_artists.join(", ")} - ${track_title}`
     } else {
         return ""
@@ -27,8 +28,9 @@ export function Media() {
   })
 
   const box = Widget.Box({
+    spacing: 4,
     className: "media",
-    children: [icon,label],
+    children: [icon, label],
   })
 
   return Widget.EventBox({
