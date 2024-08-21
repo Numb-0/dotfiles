@@ -1,0 +1,36 @@
+.dashboard {
+  font-family: "JetBrains Mono";
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 40px;
+  border-color: $green;
+  background-color: $surface0;
+
+  padding-bottom: 4px;
+  padding-top: 4px;
+
+  label {
+    font-size: 14px;
+    padding-top: 3px;
+  }
+  
+  .volume {
+    box {
+      margin: 3px;
+    }
+    border-radius: 40px;
+    border-width: 2px;
+    color: $base; 
+    background-color: $green;
+  }
+  
+  .brightness {
+    box {
+      margin: 3px;
+    }
+    border-radius: 40px;
+    border-width: 2px;
+    color: $base; 
+    background-color: $peach;
+  }
+}

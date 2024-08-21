@@ -41,12 +41,13 @@ export function Volume() {
     } 
        
     return Widget.EventBox({
-        child: Widget.Box({
-          class_name: "volume",
-          children: [icon,label],
-        }),
+        class_name: "volume",
         on_scroll_up: volume_up,
         on_scroll_down: volume_down,
+        child: Widget.Box({
+          spacing: 3,
+          children: [icon,label],
+        }),
     })
 }
 

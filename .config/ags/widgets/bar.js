@@ -1,9 +1,7 @@
 import { Workspaces } from "./components/workspaces.js"
-import { Volume } from "./components/volume.js"
 import { Battery } from "./components/battery.js"
 import { Media } from "./components/media.js"
 import { SysTray } from "./components/systray.js"
-import { Brightness } from "./components/brightness.js" 
 import { Network } from "./components/network.js"
 import { Bluetooth } from "./components/bluetooth.js"
 
@@ -20,10 +18,13 @@ function Clock() {
     })
 }
 
+// This here until bug fix since it throws error but load them anyway
+App.addIcons(`${App.configDir}/assets`)
+
 function Logo() {
   return Widget.Icon({
+    icon: "Logo-symbolic",
     class_name: "logo",
-    icon: 'archico-symbolic',
   })
 }
 
@@ -72,9 +73,7 @@ function Right() {
         spacing: 8,
         children: [
           //Bluetooth(),
-          Brightness(),
           Clock(),
-          Volume(),
           Network(),
           Battery(),
           SysTray(),

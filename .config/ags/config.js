@@ -19,7 +19,7 @@ const Bars = () => {
 
 App.config({
   style: css,
-  icons: './assets',
+  icons: "./assets",
   gtkTheme: "Adwaita-dark",
   windows: [
     applauncher,
@@ -27,3 +27,4 @@ App.config({
     ...Bars(),
   ],
 })
+

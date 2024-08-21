@@ -8,82 +8,81 @@
   label {
     font-size: 14px;
     padding-top: 3px;
-    padding-left: 3px;
-  } 
+  }
+
   button {
     min-width: 3px;
     min-height: 3px;
   }
-}
 
-.logo {
-  color: $blue;
-  padding-left: 5px; 
-}
-
-.volume {
-  * {
-    color: $green; 
-    margin: 0;
+  .logo {
+    color: $blue;
+    padding-left: 5px; 
   }
-}
 
-.network {
-  * {
-    color: $pink;
+  .volume {
+    * {
+      color: $green; 
+    }
   }
-}
 
-.workspaces {  
-  margin-left: 5px;
-  background-color: $surface0;
-  border-radius: 40px;
-  padding-left: 5px;
-  padding-right: 5px;
-  button {
-    margin: 6px 0 6px;
-    background-color: $subtext1;
-    border-width: 1px;
+  .network {
+    * {
+      color: $pink;
+    }
+  }
+
+  .workspaces {  
+    margin-left: 5px;
+    background-color: $surface0;
     border-radius: 40px;
-    padding: 3px;
-    
-    &.occupied {
-      background-color: $mauve;
+    padding-left: 5px;
+    padding-right: 5px;
+    button {
+      margin: 6px 0 6px;
+      background-color: $subtext1;
+      border-width: 1px;
+      border-radius: 40px;
+      padding: 3px;
+      
+      &.occupied {
+        background-color: $mauve;
+      }
+
+      &.active {
+        //border-radius: 0;
+        min-width: 10px;
+        background-color: $yellow;
+      }
     }
+  }
 
-    &.active {
-      //border-radius: 0;
-      min-width: 10px;
-      background-color: $yellow;
+  .battery {
+    * {
+      color: $yellow;
     }
   }
-}
 
-.battery {
-  * {
-    color: $yellow;
+  .clock {
+    color: $text;
   }
-}
 
-.clock {
-  color: $text;
-}
-
-.media {
-  * {
-    color: $mauve;
+  .media {
+    * {
+      color: $mauve;
+    }
   }
-}
 
-.systray {
-  button {
-    padding: 2px 4px;
-    -gtk-icon-shadow: none;
+  .systray {
+    button {
+      padding: 2px 4px;
+      -gtk-icon-shadow: none;
+    }
   }
-}
 
-.brightness {
-  * {
-    color: $peach;
+  .brightness {
+    * {
+      color: $peach;
+    }
   }
 }
