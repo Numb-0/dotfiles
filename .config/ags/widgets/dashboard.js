@@ -1,18 +1,18 @@
-import { Volume } from "./components/volume.js"
 import { Brightness } from "./components/brightness.js"
+import { Volume_Slider } from "./components/volume_slider.js"
 
 const WINDOW_NAME = "dashboard"
 
-const Left_box = Widget.Box({
+const Left_box = Widget.CenterBox({
   vertical: true,
   css: "background-color: transparent;",
-  children: [Volume(),],
+  centerWidget: Volume_Slider(),
 })
 
-const Right_box =  Widget.Box({
+const Right_box =  Widget.CenterBox({
   css: "background-color: transparent;",
   vertical: true,
-  children: [Brightness(),],
+  centerWidget: Brightness(),
 })
 
 const Dashboard = () => {

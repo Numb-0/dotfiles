@@ -1,5 +1,11 @@
 #ZSH Configs ++Numb-0++
 
+# Starts Hyperland if not already started
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+    exec Hyprland
+fi
+
+
 # Download Znap, if it's not there yet.
 [[ -r ~/Repos/znap/znap.zsh ]] ||
     git clone --depth 1 -- \

@@ -4,11 +4,12 @@ import { Media } from "./components/media.js"
 import { SysTray } from "./components/systray.js"
 import { Network } from "./components/network.js"
 import { Bluetooth } from "./components/bluetooth.js"
+import { Volume } from "./components/volume.js"
 
 const notifications = await Service.import("notifications")
 
 const date = Variable("", {
-    poll: [1000, 'date "+%H:%M:%S %b %e"'],
+    poll: [1000, 'date "+%H:%M %b %e"'],
 })
 
 function Clock() {
@@ -72,9 +73,13 @@ function Right() {
         hpack: "end",
         spacing: 8,
         children: [
-          //Bluetooth(),
           Clock(),
-          Network(),
+          Widget.Box({
+            spacing: 3,
+            class_name: "utilicons",
+            children: [Network(), Bluetooth()]
+          }),
+          Volume(),
           Battery(),
           SysTray(),
         ],

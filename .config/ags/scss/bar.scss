@@ -75,14 +75,30 @@
 
   .systray {
     button {
-      padding: 2px 4px;
+      padding-left: 0;
+      padding-right: 4px;
       -gtk-icon-shadow: none;
     }
+  }
+  
+  .utilicons {
+    margin-left: 5px;
+    background-color: $surface0;
+    border-radius: 40px;
+    // This is the padding at the left/right of the box
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   .brightness {
     * {
       color: $peach;
+    }
+  }
+
+  .bluetooth {
+    * {
+      color: $blue;
     }
   }
 }

@@ -16,7 +16,7 @@ export function Bluetooth() {
                 Widget.Label(name),
             ]));
 
-        //self.visible = bluetooth.connected_devices.length > 0;
+        self.visible = bluetooth.connected_devices.length > 0;
     }, 'notify::connected-devices'),
   })
   
@@ -75,6 +75,7 @@ export function Bluetooth() {
   })
 
   return Widget.EventBox({
+    class_name: "bluetooth",
     child: box,
     on_primary_click: (_, event) => { menu.popup_at_pointer(event) }
   })

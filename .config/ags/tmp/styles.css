@@ -41,10 +41,19 @@
   .bar .media * {
     color: #c6a0f6; }
   .bar .systray button {
-    padding: 2px 4px;
+    padding-left: 0;
+    padding-right: 4px;
     -gtk-icon-shadow: none; }
+  .bar .utilicons {
+    margin-left: 5px;
+    background-color: #363a4f;
+    border-radius: 40px;
+    padding-left: 5px;
+    padding-right: 5px; }
   .bar .brightness * {
     color: #f5a97f; }
+  .bar .bluetooth * {
+    color: #8aadf4; }
 
 .applauncher {
   background-color: #24273a;
@@ -82,27 +91,37 @@
   font-weight: 600;
   padding: 5px;
   border-radius: 40px;
-  border-color: #a6da95;
-  background-color: #363a4f;
+  border: solid 2px;
+  border-color: #f4dbd6;
+  background-color: #24273a;
   padding-bottom: 4px;
   padding-top: 4px; }
   .dashboard label {
     font-size: 14px;
     padding-top: 3px; }
-  .dashboard .volume {
+  .dashboard .volume_slider {
+    color: #a6da95;
+    background-color: #363a4f;
     border-radius: 40px;
-    border-width: 2px;
-    color: #24273a;
-    background-color: #a6da95; }
-    .dashboard .volume box {
-      margin: 3px; }
+    padding-left: 5px;
+    padding-right: 5px; }
+    .dashboard .volume_slider scale {
+      min-width: 50px; }
+      .dashboard .volume_slider scale slider {
+        border: none;
+        box-shadow: none;
+        background: #a6da95;
+        min-width: 3px;
+        min-height: 3px;
+        margin: -6px; }
+      .dashboard .volume_slider scale trough {
+        border-color: #a6da95; }
   .dashboard .brightness {
+    /* margin: 3px; */
     border-radius: 40px;
     border-width: 2px;
     color: #24273a;
     background-color: #f5a97f; }
-    .dashboard .brightness box {
-      margin: 3px; }
 
 button {
   background-color: transparent;

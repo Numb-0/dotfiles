@@ -11,8 +11,13 @@ git clone "https://aur.archlinux.org/yay.git"
 
 
 PKGS=(
+    # Hyprland
+    
+    'hyperland-git'
+    'hyperlock-git'
 
     # UTILITIES -----------------------------------------------------------
+    
     'aylurs-gtk-shell'
 
     # COMMUNICATIONS ------------------------------------------------------
