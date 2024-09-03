@@ -8,18 +8,17 @@ export function Brightness() {
   
   const icon = Widget.Icon({
     icon: "brightness-low-symbolic",
-    size: 22,
+    size: 25,
   })
 
   const box = Widget.Box({
-    spacing: 3,
     children:[icon, label],
   })
 
   return Widget.EventBox({
     class_name: "brightness",
-    on_scroll_up: () => { brightness.screen_value = (brightness.screen_value + 0.02) },
-    on_scroll_down: () => { brightness.screen_value = Math.max(0, brightness.screen_value - 0.02) },
+    on_scroll_up: () => { brightness.screen_value = (brightness.screen_value + 0.01) },
+    on_scroll_down: () => { brightness.screen_value = Math.max(0, brightness.screen_value - 0.01) },
     child: box,
   })
     

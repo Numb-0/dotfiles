@@ -18,7 +18,7 @@ export function Volume_Slider() {
   }
 
   const icon = Widget.Icon({
-      icon: Utils.watch(getIcon(), audio.speaker, getIcon),
+    icon: Utils.watch(getIcon(), audio.speaker, getIcon),
   })
   
   const slider = Widget.Slider({

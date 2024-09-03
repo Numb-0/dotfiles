@@ -44,15 +44,15 @@
     padding-left: 0;
     padding-right: 4px;
     -gtk-icon-shadow: none; }
-  .bar .utilicons {
-    margin-left: 5px;
+  .bar .boxed {
+    /* margin-left: 5px; */
     background-color: #363a4f;
     border-radius: 40px;
-    padding-left: 5px;
-    padding-right: 5px; }
+    padding-left: 3px;
+    padding-right: 3px; }
   .bar .brightness * {
     color: #f5a97f; }
-  .bar .bluetooth * {
+  .bar .bluetooth {
     color: #8aadf4; }
 
 .applauncher {
@@ -93,35 +93,47 @@
   border-radius: 40px;
   border: solid 2px;
   border-color: #f4dbd6;
-  background-color: #24273a;
-  padding-bottom: 4px;
-  padding-top: 4px; }
+  background-color: #24273a; }
   .dashboard label {
-    font-size: 14px;
     padding-top: 3px; }
-  .dashboard .volume_slider {
-    color: #a6da95;
+  .dashboard .volume_slider,
+  .dashboard .brightness_slider {
     background-color: #363a4f;
     border-radius: 40px;
     padding-left: 5px;
     padding-right: 5px; }
-    .dashboard .volume_slider scale {
-      min-width: 50px; }
-      .dashboard .volume_slider scale slider {
+    .dashboard .volume_slider scale,
+    .dashboard .brightness_slider scale {
+      min-width: 80px; }
+      .dashboard .volume_slider scale trough slider,
+      .dashboard .brightness_slider scale trough slider {
         border: none;
         box-shadow: none;
-        background: #a6da95;
         min-width: 3px;
         min-height: 3px;
         margin: -6px; }
-      .dashboard .volume_slider scale trough {
-        border-color: #a6da95; }
-  .dashboard .brightness {
-    /* margin: 3px; */
+  .dashboard .volume_slider {
+    color: #a6da95; }
+    .dashboard .volume_slider scale trough {
+      border-color: #a6da95; }
+      .dashboard .volume_slider scale trough slider {
+        background: #a6da95; }
+  .dashboard .brightness_slider {
+    color: #f5a97f; }
+    .dashboard .brightness_slider scale trough {
+      border-color: #f5a97f; }
+      .dashboard .brightness_slider scale trough slider {
+        background: #f5a97f; }
+  .dashboard .bluetooth_button,
+  .dashboard .bluetooth_entry {
+    -gtk-icon-shadow: none;
+    color: #8aadf4;
+    background-color: #363a4f;
     border-radius: 40px;
-    border-width: 2px;
-    color: #24273a;
-    background-color: #f5a97f; }
+    padding-left: 5px;
+    padding-right: 5px; }
+  .dashboard .bluetooth_entry {
+    margin-top: 4px; }
 
 button {
   background-color: transparent;

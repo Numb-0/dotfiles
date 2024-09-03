@@ -5,6 +5,7 @@ import { SysTray } from "./components/systray.js"
 import { Network } from "./components/network.js"
 import { Bluetooth } from "./components/bluetooth.js"
 import { Volume } from "./components/volume.js"
+import { Brightness } from "./components/brightness.js"
 
 const notifications = await Service.import("notifications")
 
@@ -76,9 +77,10 @@ function Right() {
           Clock(),
           Widget.Box({
             spacing: 3,
-            class_name: "utilicons",
+            class_name: "boxed",
             children: [Network(), Bluetooth()]
           }),
+          Brightness(),
           Volume(),
           Battery(),
           SysTray(),

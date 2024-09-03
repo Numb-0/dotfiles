@@ -24,17 +24,8 @@ export function Bluetooth() {
     child: connectedList,
   })
 
-  // const devices = Widget.Box({
-  //   setup: self => self.hook(bluetooth, self => {
-  //     self.children = bluetooth.devices
-  //     .map(({icon_name, name}) => Widget.Box([
-  //       Widget.Icon(icon_name + '-symbolic'),
-  //       Widget.Label(name),
-  //     ]))
-  //   }, "device-added"),
-  // })
 
-  const devices = Widget.Box({
+  const devices_box = Widget.Box({
   setup: self => self.hook(bluetooth, self => {
     if (bluetooth.devices) {
       console.log("Bluetooth devices:", bluetooth.devices);
@@ -52,8 +43,13 @@ export function Bluetooth() {
 
 
   const menu_devices = Widget.MenuItem({
-    child: devices,
-    on_activate: () =>{if (devices[0]){ devices[0].setConnection(1) }},
+    child: devices_box,
+    on_activate: () =>{
+      if (bluetooth.devices[0]){ 
+        print("hello")
+        bluetooth.devices[0].setConnection(true)
+      }
+    },
   })
 
   const menu_toggle = Widget.MenuItem({
@@ -67,7 +63,7 @@ export function Bluetooth() {
   })
 
   const menu = Widget.Menu({
-    children: [menu_toggle, menu_devices, menu_list],
+    children: [menu_toggle, menu_devices],
   })
 
   const box = Widget.Box({

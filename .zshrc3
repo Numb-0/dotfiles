@@ -1,63 +1,31 @@
-# ZSH Configs ++Numb-0++
+#ZSH Configs ++Numb-0++
 
 # Starts Hyperland if not already started
-if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]] && ! pgrep -x "Hyprland" > /dev/null; then
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     exec Hyprland
 fi
 
-# Define plugin installation directory
-ZSH_CUSTOM="$HOME/.zsh"
 
-# Function to install a plugin if not already installed
-function install_plugin() {
-    local plugin_name="$1"
-    local plugin_url="$2"
-    local plugin_dir="$ZSH_CUSTOM/$plugin_name"
+# Download Znap, if it's not there yet.
+[[ -r ~/Repos/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
 
-    if [[ ! -d "$plugin_dir" ]]; then
-        echo "Installing $plugin_name..."
-        git clone "$plugin_url" "$plugin_dir"
-        # Source the plugin if it has a .zsh file
-        # local source_line="source $plugin_dir/${plugin_name}.zsh"
-        # if ! grep -Fxq "$source_line" "$HOME/.zshrc"; then
-        #     echo "$source_line" >> "$HOME/.zshrc"
-        # fi
-    fi
-}
+# Start Znap
+source ~/Repos/znap/znap.zsh
 
-# Install plugins
-typeset -A plugins
-plugins=(
-    ["zsh-syntax-highlighting"]="git@github.com:zsh-users/zsh-syntax-highlighting.git"
-    ["zsh-autocomplete"]="git@github.com:marlonrichert/zsh-autocomplete.git"
-)
-
-for plugin in ${(k)plugins}; do
-    install_plugin "$plugin" "${plugins[$plugin]}"
-done
-
-# Plugins Settings
-ZSH_AUTOSUGGEST_STRATEGY=( history completion )
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
-source $ZSH_CUSTOM/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Install Pure prompt if not already installed
-PURE_DIR="$ZSH_CUSTOM/pure"
-PURE_URL="https://github.com/sindresorhus/pure.git"
-
-if [[ ! -d "$PURE_DIR" ]]; then
-    echo "Installing Pure prompt..."
-    git clone --recurse-submodules "$PURE_URL" "$PURE_DIR"
-fi
-
-# Setup Prompt
-fpath+=($HOME/.zsh/pure)
-autoload -U promptinit; promptinit
-prompt pure
-
-# Adds pokemon sprite at start terminal
 pokemon-colorscripts --no-title -r
+
+# This downloads and enable them automatically
+znap prompt sindresorhus/pure
+
+ZSH_AUTOSUGGEST_STRATEGY=( history completion )
+znap source zsh-users/zsh-autosuggestions
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+znap source zsh-users/zsh-syntax-highlighting
+
+znap source zsh-users/ sh-autocomplete
 
 # In case a command is not found, try to find the package that has it
 function command_not_found_handler {
@@ -110,7 +78,6 @@ alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also t
 alias vc='code --ozone-platform-hint=wayland --disable-gpu' # gui code editor
 alias tr='tree -a -f -I '.git''
 alias trd='tree -a -d'
-
 # Handy change dir shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -127,17 +94,9 @@ alias ssh='kitten ssh'
 # Kitty Nvim Padding
 alias nvim='kitty @ set-spacing padding=0 && nvim && kitty @ set-spacing padding=default'
 
-
-# History file location
+# Adding history
 HISTFILE=~/.zsh_history
-
-# Number of commands to keep in memory and in the history file
 HISTSIZE=10000
 SAVEHIST=10000
-
-# History options
-setopt appendhistory        # Append to history file, rather than overwriting
-setopt HIST_IGNORE_DUPS     # Ignore duplicate commands
-setopt HIST_IGNORE_SPACE    # Ignore commands starting with space
-setopt HIST_REDUCE_BLANKS   # Reduce multiple blanks to a single space
+setopt appendhistory
 

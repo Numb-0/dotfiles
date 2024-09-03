@@ -29,14 +29,14 @@ export function Volume() {
     })
 
     function volume_down() {
-        audio.speaker.volume = Math.max(0, audio.speaker.volume - 0.05)
+        audio.speaker.volume = Math.max(0, audio.speaker.volume - 0.01)
     }
 
     function volume_up() { 
         // Can go up to 1.5
         // This limits volume to 100%  
-        if (audio.speaker.volume < 0.99){
-          audio.speaker.volume = audio.speaker.volume + 0.05
+        if (audio.speaker.volume < 1.5){
+          audio.speaker.volume = audio.speaker.volume + 0.01
         }
     } 
        

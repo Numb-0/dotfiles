@@ -15,7 +15,7 @@ PKGS=(
     
     'hyperland-git'
     'hyperlock-git'
-
+    'hyprshot-git'
     # UTILITIES -----------------------------------------------------------
     
     'aylurs-gtk-shell'

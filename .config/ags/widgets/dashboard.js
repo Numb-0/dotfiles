@@ -1,18 +1,23 @@
-import { Brightness } from "./components/brightness.js"
-import { Volume_Slider } from "./components/volume_slider.js"
+import { Brightness_Slider } from "./components/dashboard/brightness_slider.js"
+import { Volume_Slider } from "./components/dashboard/volume_slider.js"
+import { Bluetooth_Selector } from "./components/dashboard/bluetooth_selector.js"
 
 const WINDOW_NAME = "dashboard"
 
 const Left_box = Widget.CenterBox({
+  spacing: 4,
   vertical: true,
-  css: "background-color: transparent;",
+  css: "background-color: transparent; margin: 5px;",
   centerWidget: Volume_Slider(),
+
 })
 
 const Right_box =  Widget.CenterBox({
-  css: "background-color: transparent;",
+  spacing: 4,
+  css: "background-color: transparent; margin: 5px;",
   vertical: true,
-  centerWidget: Brightness(),
+  startWidget: Bluetooth_Selector(),
+  centerWidget: Brightness_Slider(),
 })
 
 const Dashboard = () => {
