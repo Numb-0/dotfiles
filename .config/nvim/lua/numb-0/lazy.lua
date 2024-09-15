@@ -22,4 +22,7 @@ require("lazy").setup({ { import = "numb-0.plugins" }, { import = "numb-0.plugin
   change_detection = {
     notify = false,
   },
+  rocks = {
+    enabled = false,
+  }
 })

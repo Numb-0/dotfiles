@@ -37,7 +37,10 @@ for plugin in ${(k)plugins}; do
 done
 
 # Plugins Settings
-ZSH_AUTOSUGGEST_STRATEGY=( history completion )
+# ZSH_AUTOSUGGEST_STRATEGY=( history completion )
+# zstyle ':autocomplete:recent-paths:*' list-lines 10
+# zstyle ':autocomplete:*' default-context history-incremental-search-backward
+# zstyle ':autocomplete:history-search-backward:*' list-lines 2000
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 source $ZSH_CUSTOM/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -56,8 +59,6 @@ fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
 
-# Adds pokemon sprite at start terminal
-pokemon-colorscripts --no-title -r
 
 # In case a command is not found, try to find the package that has it
 function command_not_found_handler {
@@ -140,4 +141,7 @@ setopt appendhistory        # Append to history file, rather than overwriting
 setopt HIST_IGNORE_DUPS     # Ignore duplicate commands
 setopt HIST_IGNORE_SPACE    # Ignore commands starting with space
 setopt HIST_REDUCE_BLANKS   # Reduce multiple blanks to a single space
+
+# Adds Sprite pokemon
+pokemon-colorscripts --no-title -r
 

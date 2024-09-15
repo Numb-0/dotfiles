@@ -1,8 +1,9 @@
 return {
-  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "neovim/nvim-lspconfig",
   },
   config = function()
     local mason = require("mason")
@@ -23,7 +24,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -34,6 +35,13 @@ return {
         "prismals",
         "pyright",
       },
+    })
+
+    mason_lspconfig.setup_handlers({
+      function(server_name)
+        require("lspconfig")[server_name].setup({})
+      end,
+
     })
 
     mason_tool_installer.setup({
@@ -47,5 +55,7 @@ return {
       },
     })
 
+    require('lint').linters.pylint.cmd = 'python'
+    require('lint').linters.pylint.args = {'-m', 'pylint', '-f', 'json'}
   end,
 }
