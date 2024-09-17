@@ -1,12 +1,21 @@
-# ZSH Configs ++Numb-0++
+# __________ _________ ___ ___  
+# \____    //   _____//   |   \ 
+#   /     / \_____  \/    ~    \
+#  /     /_ /        \    Y    /
+# /_______ /_______  /\___|_  / 
+#         \/       \/       \/ 
+# Numb-0
+
 
 # Starts Hyperland if not already started
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]] && ! pgrep -x "Hyprland" > /dev/null; then
     exec Hyprland
 fi
 
+
 # Define plugin installation directory
 ZSH_CUSTOM="$HOME/.zsh"
+
 
 # Function to install a plugin if not already installed
 function install_plugin() {
@@ -17,33 +26,36 @@ function install_plugin() {
     if [[ ! -d "$plugin_dir" ]]; then
         echo "Installing $plugin_name..."
         git clone "$plugin_url" "$plugin_dir"
-        # Source the plugin if it has a .zsh file
-        # local source_line="source $plugin_dir/${plugin_name}.zsh"
-        # if ! grep -Fxq "$source_line" "$HOME/.zshrc"; then
-        #     echo "$source_line" >> "$HOME/.zshrc"
-        # fi
     fi
 }
+
 
 # Install plugins
 typeset -A plugins
 plugins=(
     ["zsh-syntax-highlighting"]="git@github.com:zsh-users/zsh-syntax-highlighting.git"
-    ["zsh-autocomplete"]="git@github.com:marlonrichert/zsh-autocomplete.git"
+    ["zsh-history-substring-search"]="git@github.com:zsh-users/zsh-history-substring-search.git"
+    ["zsh-autosuggestion"]="git@github.com:zsh-users/zsh-autosuggestions.git"
 )
 
 for plugin in ${(k)plugins}; do
     install_plugin "$plugin" "${plugins[$plugin]}"
 done
 
+
 # Plugins Settings
-# ZSH_AUTOSUGGEST_STRATEGY=( history completion )
-# zstyle ':autocomplete:recent-paths:*' list-lines 10
-# zstyle ':autocomplete:*' default-context history-incremental-search-backward
-# zstyle ':autocomplete:history-search-backward:*' list-lines 2000
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
-source $ZSH_CUSTOM/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_CUSTOM/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $ZSH_CUSTOM/zsh-autosuggestion/zsh-autosuggestions.zsh
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=none,fg=yellow,bold"
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=none,fg=magenta,bold"
+
 
 # Install Pure prompt if not already installed
 PURE_DIR="$ZSH_CUSTOM/pure"
@@ -80,6 +92,7 @@ function command_not_found_handler {
     return 127
 }
 
+
 # Detect the AUR wrapper
 if pacman -Qi yay &>/dev/null ; then
    aurhelper="yay"
@@ -95,6 +108,7 @@ function in {
         "$aurhelper" -S "$pkg"
     fi
 }
+
 
 # Helpful aliases
 alias  c='clear ; pokemon-colorscripts --no-title -r' # clear terminal
@@ -112,12 +126,14 @@ alias vc='code --ozone-platform-hint=wayland --disable-gpu' # gui code editor
 alias tr='tree -a -f -I '.git''
 alias trd='tree -a -d'
 
+
 # Handy change dir shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
+
 
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
@@ -126,11 +142,10 @@ alias mkdir='mkdir -p'
 alias ssh='kitten ssh'
 
 # Kitty Nvim Padding
-alias nvim='kitty @ set-spacing padding=0 && nvim && kitty @ set-spacing padding=default'
-
+alias nvim='function _nvim() { kitty @ set-spacing padding=0 && nvim "$@" && kitty @ set-spacing padding=default; }; _nvim'
 
 # History file location
-HISTFILE=~/.zsh_history
+HISTFILE=~/.zsh/.zsh_history
 
 # Number of commands to keep in memory and in the history file
 HISTSIZE=10000
@@ -144,4 +159,5 @@ setopt HIST_REDUCE_BLANKS   # Reduce multiple blanks to a single space
 
 # Adds Sprite pokemon
 pokemon-colorscripts --no-title -r
+
 
