@@ -19,6 +19,7 @@ PKGS=(
     # UTILITIES -----------------------------------------------------------
     
     'aylurs-gtk-shell'
+    'libastal-meta' # Support lib for ags
 
     # COMMUNICATIONS ------------------------------------------------------
 

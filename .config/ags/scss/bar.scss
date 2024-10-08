@@ -1,7 +1,7 @@
 .bar {
   font-family: "JetBrains Mono";
   font-weight: 600;
-  background-color: $base;
+  background-color: $mantle;
   padding-bottom: 4px;
   padding-top: 4px;
 
@@ -11,8 +11,8 @@
   }
 
   button {
-    min-width: 3px;
-    min-height: 3px;
+    min-width: 4px;
+    min-height: 4px;
   }
 
   .logo {

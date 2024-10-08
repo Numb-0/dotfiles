@@ -51,11 +51,7 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint",
-        "eslint_d",
       },
     })
-
-    require('lint').linters.pylint.cmd = 'python'
-    require('lint').linters.pylint.args = {'-m', 'pylint', '-f', 'json'}
-  end,
+    end,
 }

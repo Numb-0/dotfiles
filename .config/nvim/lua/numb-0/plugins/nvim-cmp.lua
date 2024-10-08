@@ -34,16 +34,11 @@ return {
         ["<Esc>"] = cmp.mapping.abort(),
       }),
       sources = cmp.config.sources({
+        { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-      }),
-      formatting = {
-        format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
-        }),
-      },
+      })
     })
   end,
 }

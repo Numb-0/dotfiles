@@ -1,22 +1,24 @@
 .dashboard {
+  background-color: transparent;
+  
+  .dashboard_box {
   font-family: "JetBrains Mono";
   font-weight: 600;
   padding: 5px;
-  border-radius: 40px;
-  border: solid 2px;
-  border-color: $rosewater;
-  background-color: $base;
+  border-radius: 15px;
+  //border: solid 2px;
+  //border-color: $rosewater;
+  background-color: $mantle;
 
 
   label {
-    //font-size: 14px;
     padding-top: 3px;
   }
   
   
   .volume_slider,
   .brightness_slider {
-    background-color: $surface0;
+    //background-color: $surface0;
     border-radius: 40px;
     padding-left: 5px;
     padding-right: 5px;
@@ -38,31 +40,35 @@
     color: $green;
     scale {
       trough {
-        border-color: $green;
         slider {
-          background: $green;
+          background: none;
+        }
+        highlight {
+          background-color: $green;
         }
       }
     }
   }
 
-.brightness_slider {
-  color: $peach;
-  scale {
-    trough {
-      border-color: $peach;
-      slider {
-        background: $peach;
+  .brightness_slider {
+    color: $peach;
+    scale {
+      trough {
+        slider {
+          background: none;
+        }
+        highlight {
+          background-color: $peach;
+        }
       }
     }
   }
-}
   
   .bluetooth_button,
   .bluetooth_entry {
     -gtk-icon-shadow: none;
     color: $blue;
-    background-color: $surface0;
+    //background-color: $surface0;
     border-radius: 40px;
     padding-left: 5px;
     padding-right: 5px;
@@ -71,5 +77,5 @@
   .bluetooth_entry {
     margin-top: 4px;
   }
-
+  }
 }

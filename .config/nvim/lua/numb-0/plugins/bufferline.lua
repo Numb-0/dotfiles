@@ -30,16 +30,16 @@ return {
             --separator = true,
           },
         },
-        highlights = {
-          fill = {
-            guifg = colors.text,
-            guibg = colors.crust,
-          },
-          background = {
-            guifg = colors.text,
-            guibg = colors.crust,
-          },
-        },
+        -- highlights = {
+        --   fill = {
+        --     guifg = colors.text,
+        --     guibg = colors.crust,
+        --   },
+        --   background = {
+        --     guifg = colors.text,
+        --     guibg = colors.crust,
+        --   },
+        -- },
       },
     })
   end

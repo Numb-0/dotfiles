@@ -1,0 +1,11 @@
+import Battery from "gi://AstalBattery"
+import { bind } from "astal"
+
+const battery = Battery.get_default();
+
+export default function Battery_() {
+    return  <box className={"battery"} spacing={2}>
+                <icon icon={bind(battery, "iconName")}/>
+                <label label={bind(battery, "percentage").as((p)=> `${Math.round(p*100)}%`)}/>
+            </box>
+} 

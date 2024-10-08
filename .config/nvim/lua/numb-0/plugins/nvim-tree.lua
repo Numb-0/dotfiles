@@ -5,6 +5,7 @@ return {
         local nvimtree = require("nvim-tree")
 
         nvimtree.setup({
+          update_cwd = true,
           view = {
             width = 35,
             number = true,

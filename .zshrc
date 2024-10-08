@@ -4,8 +4,10 @@
 #  /     /_ /        \    Y    /
 # /_______ /_______  /\___|_  / 
 #         \/       \/       \/ 
+#
 # Numb-0
-
+# Path for ags
+export PATH="$HOME/.local/bin:$PATH"
 
 # Starts Hyperland if not already started
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]] && ! pgrep -x "Hyprland" > /dev/null; then
@@ -51,7 +53,7 @@ source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH_CUSTOM/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $ZSH_CUSTOM/zsh-autosuggestion/zsh-autosuggestions.zsh
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=none,fg=yellow,bold"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=none,fg=magenta,bold"
