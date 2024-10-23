@@ -1,10 +1,11 @@
-import { App, Variable, Astal, Gtk, Gdk, GLib, bind } from "astal"
+import { bind, } from "astal"
+import { Gdk, App } from "astal/gtk3"
 import Tray from "gi://AstalTray"
 
 export default function SysTray() {
     const tray = Tray.get_default()
 
-    return <box>
+    return <box className={"systray"} spacing={4}>
         {bind(tray, "items").as(items => items.map(item => {
             if (item.iconThemePath)
                 App.add_icons(item.iconThemePath)

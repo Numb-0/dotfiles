@@ -1,4 +1,4 @@
-import { Widget, bind } from "astal"
+import { bind } from "astal"
 import Wp from "gi://AstalWp";
 
 export default function VolumeSlider() {

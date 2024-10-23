@@ -1,6 +1,6 @@
 import Apps from "gi://AstalApps";
 import Hyprland from "gi://AstalHyprland"
-import { Widget, App, Astal, Gtk } from "astal"
+import { App, Astal, Gtk } from "astal/gtk3"
 
 const hyprland = Hyprland.get_default()
 
@@ -26,8 +26,8 @@ export default function Applauncher() {
                 App.toggle_window("Applauncher");
             }}>
                 <box>
-                    <icon icon={app.get_icon_name() || ""} iconSize={40}/>
-                    <label label={app.get_name()} xalign={0} truncate={true} valign={Gtk.Align.CENTER}/>
+                    <icon icon={app.get_icon_name() || ""} css={"font-size: 20px"}/>
+                    <label label={app.get_name()} css={"padding-top: 4px"} xalign={0} truncate={true} valign={Gtk.Align.CENTER}/>
                 </box>
             </button>
         );

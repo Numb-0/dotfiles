@@ -6,6 +6,6 @@ export default function Volume() {
     
     return  <box className={"volume"} spacing={2}>
                 <icon icon={bind(speaker, "volumeIcon")} />
-                <label label={bind(speaker, "volume").as(p =>`${Math.floor(p * 100)} %`)} />
+                <label label={bind(speaker, "volume").as( p =>`${Math.floor(p * 100)}%`)} />
             </box>
 }

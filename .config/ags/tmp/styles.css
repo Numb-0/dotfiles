@@ -11,11 +11,19 @@
     min-width: 4px;
     min-height: 4px; }
   .bar .logo {
-    color: #8aadf4;
-    padding-left: 5px; }
+    color: #b7bdf8;
+    padding-left: 5px;
+    font-size: 15px; }
+  .bar .bluetooth {
+    padding-left: 0;
+    padding-right: 0; }
+    .bar .bluetooth * {
+      color: #8aadf4; }
   .bar .volume * {
     color: #a6da95; }
-  .bar .network * {
+  .bar .network {
+    padding-left: 0;
+    padding-right: 0;
     color: #f5bde6; }
   .bar .workspaces {
     margin-left: 5px;
@@ -25,7 +33,7 @@
     padding-right: 5px; }
     .bar .workspaces button {
       margin: 6px 0 6px;
-      background-color: #b8c0e0;
+      background-color: #b7bdf8;
       border-width: 1px;
       border-radius: 40px;
       padding: 3px; }
@@ -36,24 +44,26 @@
         background-color: #eed49f; }
   .bar .battery * {
     color: #eed49f; }
+  .bar .focused {
+    padding-left: 5px;
+    color: #b7bdf8; }
   .bar .clock {
-    color: #cad3f5; }
+    color: #b7bdf8; }
   .bar .media * {
     color: #c6a0f6; }
-  .bar .systray button {
-    padding-left: 0;
-    padding-right: 4px;
-    -gtk-icon-shadow: none; }
+  .bar .systray {
+    padding-left: 4px;
+    padding-right: 4px; }
+    .bar .systray button {
+      padding: 0;
+      -gtk-icon-shadow: none; }
   .bar .boxed {
-    /* margin-left: 5px; */
     background-color: #363a4f;
     border-radius: 40px;
     padding-left: 3px;
     padding-right: 3px; }
   .bar .brightness * {
     color: #f5a97f; }
-  .bar .bluetooth {
-    color: #8aadf4; }
 
 .applauncher {
   background-color: #1e2030;
@@ -90,12 +100,16 @@
   background-color: transparent; }
   .dashboard .dashboard_box {
     font-family: "JetBrains Mono";
-    font-weight: 600;
+    margin-right: 2px;
+    margin-top: 2px;
     padding: 5px;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #1e2030; }
     .dashboard .dashboard_box label {
+      font-weight: bold;
       padding-top: 3px; }
+    .dashboard .dashboard_box icon {
+      font-size: 15px; }
     .dashboard .dashboard_box .volume_slider,
     .dashboard .dashboard_box .brightness_slider {
       border-radius: 40px;
@@ -123,15 +137,22 @@
         background: none; }
       .dashboard .dashboard_box .brightness_slider scale trough highlight {
         background-color: #f5a97f; }
-    .dashboard .dashboard_box .bluetooth_button,
-    .dashboard .dashboard_box .bluetooth_entry {
-      -gtk-icon-shadow: none;
-      color: #8aadf4;
-      border-radius: 40px;
-      padding-left: 5px;
-      padding-right: 5px; }
-    .dashboard .dashboard_box .bluetooth_entry {
-      margin-top: 4px; }
+    .dashboard .dashboard_box .bluetooth * {
+      padding-left: 0;
+      padding-right: 0;
+      outline: none;
+      color: #8aadf4; }
+    .dashboard .dashboard_box .bluetooth label {
+      padding-top: 0; }
+    .dashboard .dashboard_box .bluetooth .connected {
+      background-color: #eed49f; }
+    .dashboard .dashboard_box .bluetooth .buttonbox {
+      background-color: #24273a;
+      border-radius: 10px;
+      padding-top: 5px; }
+      .dashboard .dashboard_box .bluetooth .buttonbox > * {
+        padding: 0;
+        padding-left: 5px; }
 
 button {
   background-color: transparent;

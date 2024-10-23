@@ -16,7 +16,7 @@ return {
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
-    local lspkind = require("lspkind")
+    --local lspkind = require("lspkind")
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
@@ -25,7 +25,7 @@ return {
       },
       snippet = {
         expand = function(args)
-          luasnip.lsp_espand(args.body)
+          luasnip.lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({

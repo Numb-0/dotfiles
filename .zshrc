@@ -144,7 +144,7 @@ alias mkdir='mkdir -p'
 alias ssh='kitten ssh'
 
 # Kitty Nvim Padding
-alias nvim='function _nvim() { kitty @ set-spacing padding=0 && nvim "$@" && kitty @ set-spacing padding=default; }; _nvim'
+#alias nvim='function _nvim() { kitty @ set-spacing padding=0 && nvim "$@" && kitty @ set-spacing padding=default; }; _nvim'
 
 # History file location
 HISTFILE=~/.zsh/.zsh_history

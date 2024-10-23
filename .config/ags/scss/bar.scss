@@ -16,8 +16,17 @@
   }
 
   .logo {
-    color: $blue;
+    color: $lavander;
     padding-left: 5px; 
+    font-size: 15px;
+  }
+
+  .bluetooth {
+    padding-left: 0;
+    padding-right: 0;
+    * {
+      color: $blue;
+    }
   }
 
   .volume {
@@ -27,9 +36,9 @@
   }
 
   .network {
-    * {
-      color: $pink;
-    }
+    padding-left: 0;
+    padding-right: 0;
+    color: $pink;
   }
 
   .workspaces {  
@@ -40,7 +49,7 @@
     padding-right: 5px;
     button {
       margin: 6px 0 6px;
-      background-color: $subtext1;
+      background-color: $lavander;
       border-width: 1px;
       border-radius: 40px;
       padding: 3px;
@@ -63,8 +72,13 @@
     }
   }
 
+  .focused {
+    padding-left: 5px;
+    color: $lavander;
+  }
+
   .clock {
-    color: $text;
+    color: $lavander;
   }
 
   .media {
@@ -74,18 +88,17 @@
   }
 
   .systray {
+    padding-left: 4px;
+    padding-right: 4px;
     button {
-      padding-left: 0;
-      padding-right: 4px;
+      padding : 0;
       -gtk-icon-shadow: none;
     }
   }
   
   .boxed {
-    /* margin-left: 5px; */
     background-color: $surface0;
     border-radius: 40px;
-    // This is the padding at the left/right of the box
     padding-left: 3px;
     padding-right: 3px;
   }
@@ -94,9 +107,5 @@
     * {
       color: $peach;
     }
-  }
-
-  .bluetooth {
-    color: $blue;
   }
 }

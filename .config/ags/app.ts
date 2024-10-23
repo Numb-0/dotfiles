@@ -1,11 +1,14 @@
-import { App, exec, Gtk, Gdk } from "astal"
-import Bar from "./widget/Bar"
-import Applauncher from "./widget/Applauncher"
-import Dashboard, {dashboardVisibleVar} from "./widget/Dashboard"
+import { exec, timeout, Variable } from "astal"
+import { App, Gdk, Gtk } from "astal/gtk3"
+import Bar from "./Widgets/Bar"
+import Applauncher from "./Widgets/Applauncher"
+import Dashboard, {dashboardVisibleVar} from "./Widgets/Dashboard"
 
 const scss = `${SRC}/scss/style.scss`
 const css = `${SRC}/tmp/styles.css`
 const icons = `${SRC}/assets`
+
+const toggling = Variable<boolean>(false)
 
 // Try to write scss to css
 try {
@@ -40,8 +43,16 @@ App.start({
     },
     // keybindings cotrol
     requestHandler(request: string, res) {
-      if (request == "dashboard")
-        dashboardVisibleVar.set(!dashboardVisibleVar.get())
+      if (request == "dashboard" && !toggling.get()) {
+        if (App.get_window("dashboard")?.visible) {
+          toggling.set(true)
+          dashboardVisibleVar.set(false)
+          timeout(200, () => {toggling.set(false)})
+        } else {
+          App.toggle_window("dashboard") 
+          timeout(200, () => {dashboardVisibleVar.set(true)})
+          timeout(200, () => {toggling.set(false)})
         res("Toggled Dashboard")
-    },
-})
+      }
+    }
+}})

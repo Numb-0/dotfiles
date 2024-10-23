@@ -7,10 +7,13 @@ export default function FocusedClient() {
     const focused = bind(hypr, "focusedClient")
 
     return <box
-        className="Focused"
+        className="focused"
         visible={focused.as(Boolean)}>
         {focused.as(client => (
-            client && <label label={bind(client, "title").as(String)} />
+            client && <label label={bind(client, "class").as(t => {
+                const firstWord = t.split(" ")[0];
+                return firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
+            })} />  
         ))}
     </box>
 }

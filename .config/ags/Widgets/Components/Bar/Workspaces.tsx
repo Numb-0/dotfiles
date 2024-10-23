@@ -1,11 +1,13 @@
 import Hyprland from "gi://AstalHyprland"
-import { Gtk, bind } from "astal"
+import { bind } from "astal"
+import { Gtk } from "astal/gtk3"
 
 const hyperland = Hyprland.get_default();
 
 export default function Workspaces() {
     const ws = 5;
     const workspaces = Array.from({ length: ws }, (_, i) => i + 1);
+    
     function WorkspaceButton({workspace}: {workspace: number}): JSX.Element {
         const currentWorkspace = () => hyperland.get_focused_workspace().get_id();
         return (
