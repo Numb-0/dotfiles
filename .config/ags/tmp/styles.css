@@ -1,7 +1,7 @@
 .bar {
   font-family: "JetBrains Mono";
   font-weight: 600;
-  background-color: #1e2030;
+  background-color: transparent;
   padding-bottom: 4px;
   padding-top: 4px; }
   .bar label {
@@ -26,9 +26,9 @@
     padding-right: 0;
     color: #f5bde6; }
   .bar .workspaces {
-    margin-left: 5px;
-    background-color: #363a4f;
-    border-radius: 40px;
+    margin-left: 10px;
+    background-color: transparent;
+    border-radius: 0px;
     padding-left: 5px;
     padding-right: 5px; }
     .bar .workspaces button {
@@ -74,22 +74,30 @@
     font-size: medium;
     font-weight: bold;
     margin-bottom: 10px;
-    background-color: #181926;
+    background-color: #1e2030;
     color: #cad3f5;
-    border-color: #c6a0f6;
+    border-color: #b7bdf8;
     border-width: 2px; }
     .applauncher entry:focus {
-      box-shadow: none; }
-  .applauncher .scrollable {
-    min-height: 500px;
-    min-width: 300px; }
+      box-shadow: none;
+      background-color: #24273a; }
   .applauncher scrollbar.overlay-indicator {
     opacity: 0; }
-  .applauncher button {
+  .applauncher .scrollable {
+    min-height: 60px; }
+    .applauncher .scrollable * {
+      border-radius: 4px;
+      border-width: 2px;
+      border-color: transparent; }
+  .applauncher .appbutton {
     outline: none;
     -gtk-icon-shadow: none; }
-    .applauncher button:focus {
-      background-color: #363a4f; }
+    .applauncher .appbutton:focus, .applauncher .appbutton:selected {
+      background-color: #8389b4; }
+  .applauncher icon {
+    font-size: 50px;
+    min-width: 50px;
+    min-height: 50px; }
   .applauncher label {
     margin-left: 5px;
     font-family: "JetBrains Mono";
@@ -103,7 +111,9 @@
     margin-right: 2px;
     margin-top: 2px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 0px;
+    border: solid 2px;
+    border-color: #8389b4;
     background-color: #1e2030; }
     .dashboard .dashboard_box label {
       font-weight: bold;
@@ -144,15 +154,17 @@
       color: #8aadf4; }
     .dashboard .dashboard_box .bluetooth label {
       padding-top: 0; }
-    .dashboard .dashboard_box .bluetooth .connected {
-      background-color: #eed49f; }
+    .dashboard .dashboard_box .bluetooth .connected * {
+      color: #eed49f; }
     .dashboard .dashboard_box .bluetooth .buttonbox {
       background-color: #24273a;
-      border-radius: 10px;
+      border: solid 2px;
+      border-radius: 0px;
       padding-top: 5px; }
       .dashboard .dashboard_box .bluetooth .buttonbox > * {
         padding: 0;
-        padding-left: 5px; }
+        padding-left: 5px;
+        padding-right: 5px; }
 
 button {
   background-color: transparent;

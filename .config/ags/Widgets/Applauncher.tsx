@@ -1,6 +1,8 @@
 import Apps from "gi://AstalApps";
 import Hyprland from "gi://AstalHyprland"
 import { App, Astal, Gtk } from "astal/gtk3"
+import { FlowBox } from "./Components/Utils/Astalified/FlowBox";
+import { FlowBoxChild } from "./Components/Utils/Astalified/FlowBoxChild";
 
 const hyprland = Hyprland.get_default()
 
@@ -19,18 +21,20 @@ export default function Applauncher() {
     };
 
     function AppButton({app}: AppButtonProps): JSX.Element {
-        return (
-            <button name={app.get_name()} 
-            onClicked={() => {
-                app.launch();
-                App.toggle_window("Applauncher");
-            }}>
-                <box>
-                    <icon icon={app.get_icon_name() || ""} css={"font-size: 20px"}/>
-                    <label label={app.get_name()} css={"padding-top: 4px"} xalign={0} truncate={true} valign={Gtk.Align.CENTER}/>
-                </box>
-            </button>
-        );
+        return <FlowBoxChild tooltipText={app.name} className={"appbutton"} name={app.name} 
+                    onActivate={(self) => {
+                    app.launch();
+                    App.toggle_window("Applauncher");
+                    if(self.is_selected()) self.set_state(Gtk.StateType.NORMAL);
+                    }}
+                    onFocusOutEvent={(self) => {
+                        self.set_state(Gtk.StateType.NORMAL);
+                    }
+                }>
+                    <box>
+                        <icon icon={app.get_icon_name() || ""}/>
+                    </box>
+                </FlowBoxChild>
     }
 
     const appButtons = appList.map((app) => (
@@ -41,7 +45,7 @@ export default function Applauncher() {
         appButtons.forEach((appButton) => {
             const appName = appButton.name.toLowerCase();
             const isVisible = appName.includes(text.toLowerCase());
-            appButton.visible = isVisible;
+            appButton.set_visible(isVisible);
         });
     }
     
@@ -71,18 +75,18 @@ export default function Applauncher() {
                             self.text = "";
                         }}
                         setup={(self) => {
-                            self.hook(App, "notify", (self) => {
+                            self.hook(App, "window-toggled", (self) => {
                                 // Retakes focus when lauching app for next search
-                                self.grab_focus_without_selecting()
+                                self.grab_focus()
                                 // reset text on app launch
                                 if (App.get_window("Applauncher")?.is_visible())
                                     self.text = "";
                             });
                 }}/>
-                <scrollable className={"scrollable"} hscroll={Gtk.PolicyType.NEVER} >
-                    <box vertical={true} spacing={4}>
+                <scrollable className={"scrollable"} hscroll={Gtk.PolicyType.NEVER}>
+                    <FlowBox activateOnSingleClick={true} homogeneous={true} selectionMode={Gtk.SelectionMode.SINGLE} min_children_per_line={4} >
                         {appButtons}
-                    </box>
+                    </FlowBox>
                 </scrollable>
             </box>
         </window>

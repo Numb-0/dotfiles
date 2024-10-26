@@ -73,6 +73,9 @@ return {
     lspconfig["ts_ls"].setup {
       capabilities = capabilities
     }
+    lspconfig["lua_ls"].setup {
+      capabilities = capabilities
+    }
 
     -- Change the Diagnostic symbols in the sign column
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

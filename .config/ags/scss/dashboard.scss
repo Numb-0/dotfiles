@@ -7,9 +7,9 @@
   margin-right: 2px;
   margin-top: 2px;
   padding: 5px;
-  border-radius: 10px;
-  //border: solid 2px;
-  //border-color: $rosewater;
+  border-radius: 0px;
+  border: solid 2px;
+  border-color: mix($lavender, $surface0, 60%);
   background-color: $mantle;
 
   label {
@@ -81,15 +81,19 @@
         padding-top:0;
       }
       .connected {
-        background-color: $yellow;
+        *{
+          color: $yellow;
+        }
       }
       .buttonbox {
         background-color: $base;
-        border-radius: 10px;
+        border: solid 2px;
+        border-radius: 0px;
         padding-top: 5px;
         > * {
           padding: 0;
           padding-left: 5px;
+          padding-right: 5px;
         }
       }
     }

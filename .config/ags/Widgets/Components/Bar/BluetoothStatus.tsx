@@ -1,7 +1,7 @@
 import Bluetooth from "gi://AstalBluetooth";
 import { bind } from "astal";
 
-export default function Bluetooth_() {
+export default function BluetoothStatus() {
     const bluetooth = Bluetooth.get_default()
 
     return  <button className={"bluetooth"} onClicked={() => bluetooth.toggle()}>

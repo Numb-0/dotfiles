@@ -20,25 +20,36 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
+
       completition = {
         completeopt = "menu,menuone,preview,noselect",
       },
+
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
+
       mapping = cmp.mapping.preset.insert({
         ["<Tab>"] = cmp.mapping.select_next_item(),
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<Esc>"] = cmp.mapping.abort(),
       }),
+
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
         { name = "path" },
-      })
+        { name = "nvim_lsp", keyword_length = 1 },
+        { name = "luasnip", keyword_length = 2 },
+        { name = "buffer", keyword_length = 3 },
+      }),
     })
+
+    -- Set up lspconfig.
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+      require('lspconfig')[''].setup {
+        capabilities = capabilities
+      }
   end,
 }

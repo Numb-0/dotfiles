@@ -1,8 +1,9 @@
 import { Variable, timeout} from "astal"
-import { App, Astal, Gtk, Gdk} from "astal/gtk3"
+import { App, Astal, Gtk} from "astal/gtk3"
 import Hyprland from "gi://AstalHyprland"
 import VolumeSlider from "./Components/Dashboard/VolumeSlider";
 import BluetoothController from "./Components/Dashboard/BluetoothController";
+import BrightnessSlider from "./Components/Dashboard/BrightnessSlider";
 
 
 
@@ -20,8 +21,8 @@ export default function Dashboard() {
                 application={App}
                 monitor={hyprland.get_focused_monitor().id}
                 onKeyPressEvent={(_, e) => e.get_keycode()[1] === 9 && dashboardVisibleVar.set(false)}
-                marginTop={4}
-                marginRight={4}
+                marginTop={8}
+                marginRight={8}
                 visible={true}
                 setup={(self) => {
                   dashboardVisibleVar.subscribe(v => {
@@ -37,6 +38,7 @@ export default function Dashboard() {
                 }}>
                 <revealer halign={Gtk.Align.END} valign={Gtk.Align.START} revealChild={dashboardVisibleVar()} transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}>
                   <box className={"dashboard_box"} vertical={true} vexpand={true}>
+                    <BrightnessSlider/>
                     <VolumeSlider/>
                     <BluetoothController/>
                   </box>

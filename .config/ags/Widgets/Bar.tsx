@@ -2,12 +2,13 @@ import { Astal, App, Gtk, Gdk } from "astal/gtk3"
 import { Variable } from "astal"
 import GLib from "gi://GLib"
 import Workspaces from "./Components/Bar/Workspaces"
-import Volume from "./Components/Bar/Volume"
-import Battery_ from "./Components/Bar/Battery"
+import Volume from "./Components/Bar/VolumeStatus"
+import Battery_ from "./Components/Bar/BatteryStatus"
 import SysTray from "./Components/Bar/SysTray"
-import Wifi from "./Components/Bar/Wifi"
+import Wifi from "./Components/Bar/WifiStatus"
 import FocusedClient from "./Components/Bar/FocusedClient"
-import Bluetooth_ from "./Components/Bar/Bluetooth"
+import Bluetooth_ from "./Components/Bar/BluetoothStatus"
+import Brightness_ from "./Components/Bar/BrightnessStatus"
 
 const time = Variable<string>("").poll(1000, () => GLib.DateTime.new_now_local().format("%H:%M")!)
 
@@ -32,6 +33,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             </box>
             <label className={"clock"} label={time()} halign={Gtk.Align.CENTER} />
             <box halign={Gtk.Align.END} spacing={4}>
+                <Brightness_ />
                 <Volume />
                 <Bluetooth_ />
                 <Wifi />
