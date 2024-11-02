@@ -1,5 +1,6 @@
 import { bind } from "astal"
 import Brightness from "../Utils/Services/Brightness"
+import { Gtk } from "astal/gtk3"
 
 export default function BrightnessSlider() {
   const brightness = new Brightness()

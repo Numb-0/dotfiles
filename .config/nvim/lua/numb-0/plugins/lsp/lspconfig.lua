@@ -10,16 +10,10 @@ return {
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
-    -- import mason_lspconfig plugin
-    local mason_lspconfig = require("mason-lspconfig")
-
-    -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
     -- Create Commands
     local keymap = vim.keymap
     vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      desc = "LSP actions",
       callback = function(ev)
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -64,18 +58,8 @@ return {
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-      end,
+      end
     })
-
-
-    -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-    lspconfig["ts_ls"].setup {
-      capabilities = capabilities
-    }
-    lspconfig["lua_ls"].setup {
-      capabilities = capabilities
-    }
 
     -- Change the Diagnostic symbols in the sign column
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

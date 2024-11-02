@@ -63,33 +63,31 @@ export default function BluetoothController() {
         }
     }
 
-    return  <box className={"bluetooth"}>
-                <box vertical={true}>
-                    <box halign={Gtk.Align.START}>
-                        <button onClicked={() => bluetooth.toggle()}>
-                            <icon css={"padding-left: 5px; padding-right: 5px;"} icon={bind(bluetooth.adapter, "powered").as((powered) => powered ? "bluetooth-symbolic" : "bluetooth-disabled-symbolic")}/>
+    return  <box vertical={true} className={"bluetooth"}>
+                    <centerbox>
+                        <button halign={Gtk.Align.START} onClicked={() => bluetooth.toggle()}>
+                            <icon icon={bind(bluetooth.adapter, "powered").as((powered) => powered ? "bluetooth-symbolic" : "bluetooth-disabled-symbolic")}/>
                         </button>
                         <button onClick={()=>{
                             rotateArrow(); 
                             revealer_visible.set(!arrow_open.get())
                             }}>
                             <box spacing={4}>
-                                <label css={"padding-top: 3px"} label="Bluetooth"/>
+                                <label label="BLUE"/>
                                 <ToggleArrow/>
                             </box>
                         </button>
-                        <button onClicked={() => update_device_list()}>
+                        <button css={"padding-right: 8px;"} halign={Gtk.Align.END} onClicked={() => update_device_list()}>
                             <stack visibleChildName={bind(bluetooth.adapter, "discovering").as((d) => (d ? "Spinner" : "Arrow"))}>
-                                <icon css={"padding-top:1px; padding-left: 1px"} name={"Arrow"} icon={"RefreshArrow-symbolic"}/>
+                                <icon name={"Arrow"} icon={"RefreshArrow-symbolic"}/>
                                 <Spinner name={"Spinner"} active={true}/>
                             </stack>
                         </button>
-                    </box>
+                    </centerbox>
                     <revealer revealChild={revealer_visible()}>
                         <box vertical={true} className={"buttonbox"}>
                             {device_discovery}
                         </box>
                     </revealer>
-                </box>
             </box>
 }

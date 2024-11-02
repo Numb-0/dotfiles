@@ -8,6 +8,7 @@
 # Numb-0
 # Path for ags
 export PATH="$HOME/.local/bin:$PATH"
+unset ANDROID_SDK_ROOT
 
 # Starts Hyperland if not already started
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = "/dev/tty1" ]] && ! pgrep -x "Hyprland" > /dev/null; then
@@ -161,5 +162,7 @@ setopt HIST_REDUCE_BLANKS   # Reduce multiple blanks to a single space
 
 # Adds Sprite pokemon
 pokemon-colorscripts --no-title -r
+
+#eval "$(starship init zsh)"
 
 

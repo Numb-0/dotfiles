@@ -50,7 +50,7 @@ export default function Applauncher() {
     }
     
     return <window exclusivity={Astal.Exclusivity.EXCLUSIVE}
-                keymode={Astal.Keymode.ON_DEMAND} 
+                keymode={Astal.Keymode.EXCLUSIVE} 
                 name={"Applauncher"} 
                 application={App} 
                 className={"applauncher"} 
@@ -64,7 +64,7 @@ export default function Applauncher() {
                     self.hook(hyprland, "notify", (self) => {self.monitor = hyprland.get_focused_monitor().id;});
                 }}>
             <box vertical={true}>
-                <entry hexpand={true} placeholderText={"Search App"} isFocus={true}
+                <entry isFocus={true} 
                         onChanged={(self)=> {
                             filterList(self.get_text());
                         }}

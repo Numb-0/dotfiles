@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+keymap.set("n", "<leader>nh", ":nohl<CR>", {desc = "Clear Filters"})
+
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number"})
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number"})
 

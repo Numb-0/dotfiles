@@ -1,5 +1,6 @@
 import { bind } from "astal"
 import Wp from "gi://AstalWp";
+import { Gtk } from "astal/gtk3"
 
 export default function VolumeSlider() {
 

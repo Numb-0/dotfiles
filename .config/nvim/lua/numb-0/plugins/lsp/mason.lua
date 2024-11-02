@@ -21,6 +21,14 @@ return {
       },
     })
 
+    local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+    local default_setup = function(server)
+      require("lspconfig")[server].setup({
+        capabilities = lsp_capabilities,
+      })
+    end
+
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
@@ -35,13 +43,9 @@ return {
         "prismals",
         "pyright",
       },
-    })
-
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({})
-      end,
-
+      handlers = {
+        default_setup,
+      }
     })
 
     mason_tool_installer.setup({

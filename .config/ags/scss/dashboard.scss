@@ -2,37 +2,47 @@
   background-color: transparent;
   
   .dashboard_box {
-  font-family: "JetBrains Mono";
-  //font-weight: 600;
-  margin-right: 2px;
-  margin-top: 2px;
-  padding: 5px;
-  border-radius: 0px;
-  border: solid 2px;
-  border-color: mix($lavender, $surface0, 60%);
-  background-color: $mantle;
+    font-family: "Tiny5";
+    //margin-right: 2px;
+    //margin-top: 2px;
+    padding: 5px;
+    border-radius: 0px;
+    border: solid 2px;
+    border-color: mix($lavender, $surface0, 60%);
+    background-color: $mantle;
 
-  label {
-    font-weight: bold;
-    padding-top: 3px;
-  }
+    label {
+      font-weight: 500;
+      font-family: "Tiny5";
+      font-size: 16px;
+      //padding-top: 3px;
+    }
 
-  icon {
-    font-size: 15px;
-  }
+    icon {
+      font-size: 16px;
+    }
+
+    .mpris {
+      * {
+        padding-left: 0;
+        padding-right: 0;
+        outline: none;
+        color: $mauve;
+      }
+    }
   
   
     .volume_slider,
     .brightness_slider {
       //background-color: $surface0;
-      border-radius: 40px;
-      padding-left: 5px;
-      padding-right: 5px;
+      border-radius: 0;
+      //padding-left: 5px;
+      //padding-right: 5px;
       scale {
-        min-width: 80px;
+        min-width: 90px;
         trough {
+          border-radius: 0;
           slider {
-            border: none;
             box-shadow: none;
             min-width: 3px;
             min-height: 3px;
@@ -50,6 +60,7 @@
             background: none;
           }
           highlight {
+            border-radius: 0;
             background-color: $green;
           }
         }
@@ -64,6 +75,7 @@
             background: none;
           }
           highlight {
+            border-radius: 0;
             background-color: $peach;
           }
         }
@@ -71,6 +83,7 @@
     }
     
     .bluetooth {
+      //border: solid 2px $blue;
       * {
         padding-left: 0;
         padding-right: 0;
@@ -89,11 +102,14 @@
         background-color: $base;
         border: solid 2px;
         border-radius: 0px;
-        padding-top: 5px;
+        icon {
+          padding-top: 5px;
+        }
         > * {
           padding: 0;
           padding-left: 5px;
           padding-right: 5px;
+          //padding-top: 5px;
         }
       }
     }

@@ -9,6 +9,7 @@ import Wifi from "./Components/Bar/WifiStatus"
 import FocusedClient from "./Components/Bar/FocusedClient"
 import Bluetooth_ from "./Components/Bar/BluetoothStatus"
 import Brightness_ from "./Components/Bar/BrightnessStatus"
+import BluetoothStatus from "./Components/Bar/BluetoothStatus"
 
 const time = Variable<string>("").poll(1000, () => GLib.DateTime.new_now_local().format("%H:%M")!)
 
@@ -28,17 +29,16 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <centerbox>
             <box halign={Gtk.Align.START} >
                 <icon className={"logo"} icon={"Logo-symbolic"} />
-                <Workspaces />
+                <Workspaces/>
                 {/* <FocusedClient /> */}
             </box>
             <label className={"clock"} label={time()} halign={Gtk.Align.CENTER} />
             <box halign={Gtk.Align.END} spacing={4}>
-                <Brightness_ />
-                <Volume />
-                <Bluetooth_ />
-                <Wifi />
-                <Battery_ />
-                <SysTray />
+                <Wifi/>
+                <Brightness_/>
+                <Volume/>
+                <Battery_/>
+                <SysTray/>
             </box>
         </centerbox>
     </window>

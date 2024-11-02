@@ -67,7 +67,6 @@ return {
             color = { fg = colors.mauve },
           },
           { "encoding" },
-          { "fileformat" },
           { "filetype" },
         },
       },

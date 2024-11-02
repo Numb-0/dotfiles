@@ -4,6 +4,7 @@ import Hyprland from "gi://AstalHyprland"
 import VolumeSlider from "./Components/Dashboard/VolumeSlider";
 import BluetoothController from "./Components/Dashboard/BluetoothController";
 import BrightnessSlider from "./Components/Dashboard/BrightnessSlider";
+//import MprisSelector from "./Components/Dashboard/MprisSelector";
 
 
 
@@ -20,6 +21,7 @@ export default function Dashboard() {
                 className={"dashboard"}
                 application={App}
                 monitor={hyprland.get_focused_monitor().id}
+                onButtonPressEvent={(_, e) => e.get_button()[1] === 1 && dashboardVisibleVar.set(false)}
                 onKeyPressEvent={(_, e) => e.get_keycode()[1] === 9 && dashboardVisibleVar.set(false)}
                 marginTop={8}
                 marginRight={8}
