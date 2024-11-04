@@ -33,7 +33,7 @@ export default function Dashboard() {
                     }
                   })
                   // Moves to screen with mouse focus
-                  self.hook(hyprland, "notify", (self) => {
+                  self.hook(hyprland, "notify::focused-workspace", (self) => {
                     if (self.monitor != hyprland.get_focused_monitor().id)
                       self.monitor = hyprland.get_focused_monitor().id
                   });

@@ -168,6 +168,7 @@
       border: solid 2px;
       border-radius: 0px; }
       .dashboard .dashboard_box .bluetooth .buttonbox icon {
+        padding-right: 5px;
         padding-top: 5px; }
       .dashboard .dashboard_box .bluetooth .buttonbox > * {
         padding: 0;

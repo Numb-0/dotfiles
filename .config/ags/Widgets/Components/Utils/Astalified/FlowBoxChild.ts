@@ -6,7 +6,9 @@ export class FlowBoxChild extends astalify(Gtk.FlowBoxChild) {
     constructor(props: ConstructProps<
         FlowBoxChild,
         Gtk.FlowBoxChild.ConstructorProps,
-        { activate:[] } // signals TODO: Add signals if needed
+        {   
+            onActivate: []
+        } // signals TODO: Add signals if needed
     >) {
         super(props as any)
     }

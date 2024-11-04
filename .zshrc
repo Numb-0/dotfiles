@@ -6,8 +6,11 @@
 #         \/       \/       \/ 
 #
 # Numb-0
+
 # Path for ags
 export PATH="$HOME/.local/bin:$PATH"
+
+# Godot
 unset ANDROID_SDK_ROOT
 
 # Starts Hyperland if not already started

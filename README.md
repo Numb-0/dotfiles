@@ -54,3 +54,8 @@ install network-manager and use the nmtui command to configure your network
 
 ## Spot
 spotify installation path = ~/.local/share/spotify-launcher/install/usr/bin
+
+## Fish Shell
+1. echo /usr/local/bin/fish | sudo tee -a /etc/shells #adds fish to shells
+2. chsh -s /usr/local/bin/fish # changes default shell
+ 

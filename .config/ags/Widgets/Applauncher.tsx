@@ -16,24 +16,16 @@ export default function Applauncher() {
     // Get all apps infos
     const appList = apps.fuzzy_query("");
 
-    type AppButtonProps = {
-        app: Apps.Application
-    };
-
-    function AppButton({app}: AppButtonProps): JSX.Element {
-        return <FlowBoxChild tooltipText={app.name} className={"appbutton"} name={app.name} 
+    function AppButton({app}: {app: Apps.Application}): JSX.Element {
+        return  <FlowBoxChild tooltipText={app.name} className={"appbutton"} name={app.name}
                     onActivate={(self) => {
-                    app.launch();
-                    App.toggle_window("Applauncher");
-                    if(self.is_selected()) self.set_state(Gtk.StateType.NORMAL);
+                        app.launch();
+                        App.toggle_window("Applauncher");
+                        // Resets selection
+                        if(self.is_selected()) self.set_state(Gtk.StateType.NORMAL);
                     }}
-                    onFocusOutEvent={(self) => {
-                        self.set_state(Gtk.StateType.NORMAL);
-                    }
-                }>
-                    <box>
-                        <icon icon={app.get_icon_name() || ""}/>
-                    </box>
+                >
+                    <icon icon={app.get_icon_name() || ""}/>
                 </FlowBoxChild>
     }
 
@@ -50,7 +42,7 @@ export default function Applauncher() {
     }
     
     return <window exclusivity={Astal.Exclusivity.EXCLUSIVE}
-                keymode={Astal.Keymode.EXCLUSIVE} 
+                keymode={Astal.Keymode.ON_DEMAND} 
                 name={"Applauncher"} 
                 application={App} 
                 className={"applauncher"} 
@@ -61,11 +53,11 @@ export default function Applauncher() {
                 }
                 setup={(self) => {
                     // Moves to screen with mouse focus
-                    self.hook(hyprland, "notify", (self) => {self.monitor = hyprland.get_focused_monitor().id;});
-                }}>
+                    self.hook(hyprland, "notify::focused-workspace", (self) => {self.monitor = hyprland.get_focused_monitor().id;});
+                }}
+            >
             <box vertical={true}>
-                <entry isFocus={true} 
-                        onChanged={(self)=> {
+                <entry  onChanged={(self)=> {
                             filterList(self.get_text());
                         }}
                         onActivate={(self) => {
@@ -81,10 +73,11 @@ export default function Applauncher() {
                                 // reset text on app launch
                                 if (App.get_window("Applauncher")?.is_visible())
                                     self.text = "";
-                            });
-                }}/>
+                                })
+                            }}
+                />
                 <scrollable className={"scrollable"} hscroll={Gtk.PolicyType.NEVER}>
-                    <FlowBox activateOnSingleClick={true} homogeneous={true} selectionMode={Gtk.SelectionMode.SINGLE} min_children_per_line={4} >
+                    <FlowBox homogeneous={true} min_children_per_line={4} onChildActivated={(self, child)=>{print(child.name)}}>
                         {appButtons}
                     </FlowBox>
                 </scrollable>

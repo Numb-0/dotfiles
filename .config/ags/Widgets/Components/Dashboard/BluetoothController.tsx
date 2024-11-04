@@ -9,18 +9,10 @@ export default function BluetoothController() {
     const bluetooth = Bluetooth.get_default()
     const revealer_visible = Variable<boolean>(false)
     
-    // Custom Icons
+    // Use these before using default ones
     const custom_icons: { [key: string]: string } = {
         "audio-headset": "CustomHeadPhones-symbolic",
     }
-
-    const handler = {
-        get: function(target: { [key: string]: string }, prop: string) {
-            return prop in target ? target[prop] : prop;
-        }
-    };
-    
-    const customIconsProxy = new Proxy(custom_icons, handler);
 
     // Device List
     const device_discovery = bind(bluetooth, "devices").as(devices => devices
@@ -45,7 +37,7 @@ export default function BluetoothController() {
     function DeviceButton({device}: {device: Bluetooth.Device}): JSX.Element {
         return <button onClicked={() => toggle_device(device)} className={bind(device, "connected").as(c => c ? "connected" : "")}>
             <box spacing={2}>
-                <icon icon={customIconsProxy[device.get_icon()]} css={"font-size: 15px; padding-right:2px;"}/>
+                <icon icon={custom_icons[device.get_icon()] || device.get_icon()} />
                 <label label={device.get_name().split(" ")[0]}/>
             </box>
         </button>

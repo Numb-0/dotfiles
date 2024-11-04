@@ -6,7 +6,15 @@ export class FlowBox extends astalify(Gtk.FlowBox) {
     constructor(props: ConstructProps<
         FlowBox,
         Gtk.FlowBox.ConstructorProps,
-        { onSelectedChildrenChanged:[] } // signals TODO: Add signals if needed
+        { 
+            onChildActivated: [child : Gtk.FlowBoxChild],
+            onSelectedChildrenChanged: [],
+            onActivateCursorChild: [],
+            onToggleCursorChild: [],
+            onMoveCursor: [],
+            onSelectAll: [],
+            onDeselectAll: [],  
+        } // signals TODO: Add signals if needed
     >) {
         super(props as any)
     }

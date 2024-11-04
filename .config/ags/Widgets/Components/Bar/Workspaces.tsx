@@ -4,7 +4,7 @@ import { Gtk } from "astal/gtk3"
 
 export default function Workspaces() {
     const hyperland = Hyprland.get_default();
-    const ws = 5;
+    const ws = 7;
     const workspaces = Array.from({ length: ws }, (_, i) => i + 1);
     
     function WorkspaceButton({workspace}: {workspace: number}): JSX.Element {
