@@ -1,6 +1,9 @@
 fish_config theme choose "Catpuccin"
 
-if test -z "$DISPLAY" -a (tty) = "/dev/tty1" -a not -a pgrep -a -x "Hyprland" > /dev/null
+set -x PATH "$HOME/.local/bin:$PATH"
+set -e ANDROID_SDK_ROOT
+
+if test (tty) = "/dev/tty1"
     exec Hyprland
 end
 
