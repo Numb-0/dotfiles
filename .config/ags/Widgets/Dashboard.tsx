@@ -6,16 +6,13 @@ import BluetoothController from "./Components/Dashboard/BluetoothController";
 import BrightnessSlider from "./Components/Dashboard/BrightnessSlider";
 //import MprisSelector from "./Components/Dashboard/MprisSelector";
 
-
-
-export const dashboardVisibleVar = Variable<boolean>(true)
+export const dashboardVisibleVar = Variable<boolean>(true) 
+const hyprland = Hyprland.get_default()
 
 export default function Dashboard() {
 
-  const hyprland = Hyprland.get_default()
-
   return <window exclusivity={Astal.Exclusivity.EXCLUSIVE}
-                anchor = {Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT | Astal.WindowAnchor.LEFT | Astal.WindowAnchor.BOTTOM}
+                anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT | Astal.WindowAnchor.LEFT | Astal.WindowAnchor.BOTTOM}
                 keymode={Astal.Keymode.EXCLUSIVE} 
                 name={"dashboard"} 
                 className={"dashboard"}
@@ -23,9 +20,9 @@ export default function Dashboard() {
                 monitor={hyprland.get_focused_monitor().id}
                 onButtonPressEvent={(_, e) => e.get_button()[1] === 1 && dashboardVisibleVar.set(false)}
                 onKeyPressEvent={(_, e) => e.get_keycode()[1] === 9 && dashboardVisibleVar.set(false)}
-                marginTop={8}
-                marginRight={8}
-                visible={true}
+                marginTop={10}
+                marginRight={10}
+                //visible={true}
                 setup={(self) => {
                   dashboardVisibleVar.subscribe(v => {
                     if (!v) {

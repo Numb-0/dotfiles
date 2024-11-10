@@ -58,4 +58,13 @@ spotify installation path = ~/.local/share/spotify-launcher/install/usr/bin
 ## Fish Shell
 1. echo /usr/local/bin/fish | sudo tee -a /etc/shells #adds fish to shells
 2. chsh -s /usr/local/bin/fish # changes default shell
- 
+
+## Autologin from tty
+1. Go to /etc/systemd/system/getty@tty1.service.d/
+2. Create a file named autologin.conf or override.conf 
+3. Add these contents 
+``` 
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TERM
+```

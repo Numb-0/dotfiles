@@ -1,7 +1,10 @@
+@use "sass:color";
+@use "colors" as *;
+
 .applauncher {
   background-color: $mantle;
   border-radius: 0;
-  border: solid 2px mix($lavender, $surface0, 60%);
+  border: solid 2px color.mix($lavender, $surface0, 60%);
   > box {
     padding: 5px;
   }
@@ -53,7 +56,7 @@
     outline: none;
     -gtk-icon-shadow: none;
     &:focus, &:selected  {
-      background-color: mix($lavender, $surface0, 60%);
+      background-color: color.mix($lavender, $surface0, 60%);
     }
   }
 

@@ -42,7 +42,7 @@ export default function Applauncher() {
     }
     
     return <window exclusivity={Astal.Exclusivity.EXCLUSIVE}
-                keymode={Astal.Keymode.ON_DEMAND} 
+                keymode={Astal.Keymode.EXCLUSIVE} 
                 name={"Applauncher"} 
                 application={App} 
                 className={"applauncher"} 

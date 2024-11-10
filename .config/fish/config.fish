@@ -1,18 +1,14 @@
-fish_config theme choose "Catpuccin"
+fish_config theme choose "Macchiato"
 
 set -x PATH "$HOME/.local/bin:$PATH"
 set -e ANDROID_SDK_ROOT
 
+# Lauches Hyprland on startup
 if test (tty) = "/dev/tty1"
     exec Hyprland
 end
 
-function multicd
-    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
-end
-
 abbr --add dotdot --regex '^\.\.+$' --function multicd
-
 abbr --add mkdir mkdir -p
 abbr --add clr 'clear ;pokemon-colorscripts --no-title -r'
 abbr --add ssh kitten ssh

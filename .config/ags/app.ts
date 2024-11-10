@@ -3,24 +3,16 @@ import { App, Gdk, Gtk } from "astal/gtk3"
 import Bar from "./Widgets/Bar"
 import Applauncher from "./Widgets/Applauncher"
 import Dashboard, {dashboardVisibleVar} from "./Widgets/Dashboard"
+import NotificationPopups from "./Widgets/Components/Notif/NotificationPopups"
+import style from "./scss/style.scss"
 
-const scss = `${SRC}/scss/style.scss`
-const css = `${SRC}/tmp/styles.css`
 const icons = `${SRC}/assets`
 
 const toggling = Variable<boolean>(false)
 
-// Try to write scss to css
-try {
-  const output = exec(`sassc ${scss} ${css}`)
-  console.log(output)
-} catch (err) {
-  console.error(err)
-}
-
 App.start({
     icons: icons,
-    css: css,
+    css: style,
     main() {
       const bars = new Map<Gdk.Monitor, Gtk.Widget>()
 
@@ -40,6 +32,7 @@ App.start({
 
       Dashboard()
       Applauncher()
+      //App.get_monitors().map(NotificationPopups)  
     },
     // keybindings cotrol
     requestHandler(request: string, res) {

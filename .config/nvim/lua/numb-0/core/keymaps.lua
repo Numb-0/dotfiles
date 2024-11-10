@@ -6,6 +6,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", {desc = "Clear Filters"})
 
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number"})
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number"})
+keymap.set("n", "_", "-", { desc = "Go Down"})
 
 keymap.set("n", "<leader>b", "<cmd>tabnew<CR>", {desc = "Open new tab"})
 keymap.set("n", "<leader>c", "<cmd>tabclose<CR>", {desc = "Close current tab"})

@@ -1,3 +1,6 @@
+@use "colors" as *;
+@use "sass:color";
+
 .dashboard {
   background-color: transparent;
   
@@ -8,7 +11,7 @@
     padding: 5px;
     border-radius: 0px;
     border: solid 2px;
-    border-color: mix($lavender, $surface0, 60%);
+    border-color: color.mix($lavender, $surface0, 60%);
     background-color: $mantle;
 
     label {
