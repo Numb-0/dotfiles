@@ -68,3 +68,7 @@ spotify installation path = ~/.local/share/spotify-launcher/install/usr/bin
 ExecStart=
 ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TERM
 ```
+
+## Steam games settings
+1. Astral Ascent --> SDL_VIDEODRIVER=wayland SDL_DYNAMIC_API=/usr/lib/libSDL2-2.0.so SDL12COMPAT_HIGHDPI=1 SDL12COMPAT_OPENGL_SCALING=0  %command%
+2. Cult of The Lamb --> gamemoderun __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json %command%
